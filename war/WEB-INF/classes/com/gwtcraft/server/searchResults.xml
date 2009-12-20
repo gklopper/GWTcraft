@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/_layout/search/search.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="searchQuery=takbok"
+	requestUrl="/search.xml">
+	<armorySearch>
+		<tabs count="4" selected="characters">
+			<tab count="4" label="armory.tabs.characters" type="characters" />
+		</tabs>
+		<searchResults pageCount="1" pageCurrent="1"
+			searchError="" searchFilter="" searchMsg="" searchText="takbok"
+			searchType="characters"
+			url="searchType=characters&amp;searchQuery=takbok&amp;p=1&amp;selectedTab=characters&amp;sd=a"
+			version="1.0">
+			<filters />
+			<characters>
+				<character battleGroup="Rampage / Saccage" battleGroupId="23"
+					class="Hunter" classId="3" faction="Horde" factionId="1" gender="Female"
+					genderId="1" guild="" guildId="0" lastLoginDate="2009-09-02 00:55:51.0"
+					level="17" name="Takbok" race="Troll" raceId="8" realm="Frostwhisper"
+					relevance="50" searchRank="1" url="r=Frostwhisper&amp;n=Takbok" />
+
+				<character battleGroup="Vindication" battleGroupId="61"
+					class="Druid" classId="11" faction="Horde" factionId="1" gender="Female"
+					genderId="1" guild="" guildId="0" lastLoginDate="2009-09-02 00:44:55.0"
+					level="71" name="Takbok" race="Tauren" raceId="6" realm="Shattered Halls"
+					relevance="51" searchRank="2" url="r=Shattered+Halls&amp;n=Takbok" />
+				<character battleGroup="Glutsturm / Emberstorm"
+					battleGroupId="28" class="Mage" classId="8" faction="Alliance"
+					factionId="0" gender="Male" genderId="0" guild="" guildId="0"
+					lastLoginDate="2009-09-02 00:51:23.0" level="11" name="Takbok"
+					race="Human" raceId="1" realm="Scarshield Legion" relevance="50"
+					searchRank="3" url="r=Scarshield+Legion&amp;n=Takbok" />
+				<character battleGroup="Misery" battleGroupId="29" class="Druid"
+					classId="11" faction="Alliance" factionId="0" gender="Male"
+					genderId="0" guild="Afrikaners is plesierig" guildId="34352"
+					lastLoginDate="2009-12-20 08:32:09.0" level="80" name="Takbok"
+					race="Night Elf" raceId="4" realm="Eonar" relevance="100"
+					searchRank="4" url="r=Eonar&amp;n=Takbok" />
+			</characters>
+		</searchResults>
+	</armorySearch>
+</page>

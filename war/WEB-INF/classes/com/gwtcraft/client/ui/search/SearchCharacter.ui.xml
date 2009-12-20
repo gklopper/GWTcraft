@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>	
+		.realm {
+			color: graytext;
+			font-style: italic;
+		}
+		
+		.search-result {
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
+		}
+	</ui:style>
+	
+	<g:HTMLPanel styleName="{style.search-result}">
+		<g:Label ui:field="name" />
+		<g:Label styleName="{style.realm}" ui:field="realm" />
+	</g:HTMLPanel>
+</ui:UiBinder> 
