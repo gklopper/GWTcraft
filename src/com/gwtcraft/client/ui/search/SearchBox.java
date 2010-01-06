@@ -13,6 +13,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.event.EventBus;
 import com.gwtcraft.client.event.SearchCompleteEvent;
+import com.gwtcraft.client.event.SearchStartEvent;
 import com.gwtcraft.client.model.CharacterSearchResult;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 
@@ -57,6 +58,8 @@ public class SearchBox extends Composite {
 				
 			}
 		});
+		
+		eventBus.fireEvent(new SearchStartEvent());
 		
 	}
 
