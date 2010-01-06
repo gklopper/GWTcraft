@@ -1,8 +1,10 @@
 package com.gwtcraft.client.model;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
+import java.io.Serializable;
 
-public class ArmoryCharacter implements IsSerializable{
+
+@SuppressWarnings("serial")
+public class ArmoryCharacter implements Serializable {
 	
 	private String name;
 	private String realm;

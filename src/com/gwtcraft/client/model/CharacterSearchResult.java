@@ -1,11 +1,11 @@
 package com.gwtcraft.client.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
-
-public class CharacterSearchResult implements IsSerializable {
+@SuppressWarnings("serial")
+public class CharacterSearchResult implements Serializable {
 	
 	List<ArmoryCharacter> characters = new ArrayList<ArmoryCharacter>();
 	
