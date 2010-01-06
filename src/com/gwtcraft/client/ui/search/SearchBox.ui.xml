@@ -2,12 +2,16 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.important {
-			font-weight: bold;
+		.characterSearch {
+			height: 30px;
+		}
+		.underline {
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
 		}
 	</ui:style>
-	<g:FlowPanel>
-		<g:TextBox ui:field="search"/>
-		<g:Button styleName="{style.important}" ui:field="button" >Search</g:Button>
+	<g:FlowPanel styleName="{style.underline}">
+		<g:TextBox styleName="{style.characterSearch}" ui:field="search"/>
+		<g:Button styleName="{style.characterSearch}" ui:field="button" >Search</g:Button>
 	</g:FlowPanel>
 </ui:UiBinder> 

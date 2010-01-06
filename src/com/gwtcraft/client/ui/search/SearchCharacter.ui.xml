@@ -2,19 +2,16 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	
+	<ui:style field="common" src="../common.css"/>
+
 	<ui:style>	
 		.realm {
 			color: graytext;
 			font-style: italic;
 		}
-		
-		.search-result {
-			border-bottom-style: solid;
-			border-bottom-width: 1px;
-		}
 	</ui:style>
 	
-	<g:HTMLPanel styleName="{style.search-result}">
+	<g:HTMLPanel styleName="{common.underline}">
 		<g:Label ui:field="name" />
 		<g:Label styleName="{style.realm}" ui:field="realm" />
 	</g:HTMLPanel>
