@@ -1,4 +1,9 @@
 .underline {
-			border-bottom-style: solid;
-			border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+.defaultFont {
+	font-family: sans-serif;
+	font-size: 16px;
 }

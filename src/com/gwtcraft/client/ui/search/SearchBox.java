@@ -7,8 +7,8 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.event.EventBus;
@@ -26,9 +26,9 @@ public class SearchBox extends Composite {
 	}
 
 	@UiField
-	Button button;
+	Image search;
 	@UiField
-	TextBox search;
+	TextBox searchText;
 	
 	private EventBus eventBus;
 	private ArmoryServiceAsync armoryService;
@@ -40,11 +40,11 @@ public class SearchBox extends Composite {
 	}
 
 
-	@UiHandler("button")
+	@UiHandler("search")
 	void onClick(ClickEvent e) {
-		String searchText = search.getText();
+		String searchString = searchText.getText();
 		
-		armoryService.search(searchText, new AsyncCallback<CharacterSearchResult>() {
+		armoryService.search(searchString, new AsyncCallback<CharacterSearchResult>() {
 			
 			@Override
 			public void onSuccess(CharacterSearchResult result) {
