@@ -9,10 +9,30 @@
 			color: graytext;
 			font-style: italic;
 		}
+		
+		.go {
+			width: 30px;
+			height: 30px;
+			margin-bottom: 2px;
+		}
+		
+		.details {
+			float: left;
+			min-width: 290px;
+			margin-bottom: 2px;
+		}
+		
+		.character {
+			clear: left;
+		}
 	</ui:style>
 	
-	<g:HTMLPanel styleName="{common.underline}">
-		<g:Label ui:field="name" />
-		<g:Label styleName="{style.realm}" ui:field="realm" />
+	<g:HTMLPanel styleName="{common.underline} {style.character}">
+		<g:FlowPanel styleName="{style.details}">
+			<g:Label ui:field="name" styleName="{common.defaultFont}"/>
+			<g:Label styleName="{style.realm} {common.defaultFont}" ui:field="realm" />
+		</g:FlowPanel>
+	<g:Image styleName="{style.go}" url="/images/go.png"/>
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 
