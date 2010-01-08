@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/_layout/character/sheet.xsl"?>
+<page globalSearch="1" lang="en_gb" requestUrl="/character-sheet.xml">
+  <tabInfo subTab="profile" tab="character" tabGroup="character" tabUrl="r=Eonar&amp;cn=Takbok&amp;gn=Afrikaners+is+plesierig"/>
+  <characterInfo>
+    <character battleGroup="Misery" charUrl="r=Eonar&amp;n=Takbok" class="Druid" classId="11" classUrl="c=Druid" faction="Alliance" factionId="0" gender="Male" genderId="0" guildName="Afrikaners is plesierig" guildUrl="r=Eonar&amp;gn=Afrikaners+is+plesierig" lastModified="07 January 2010" level="80" name="Takbok" points="3520" prefix="" race="Night Elf" raceId="4" realm="Eonar" suffix=", Champion of the Frozen Wastes" titleId="97"/>
+    <characterTab>
+      <talentSpecs>
+        <talentSpec group="2" icon="spell_nature_healingtouch" prim="Restoration" treeOne="14" treeThree="57" treeTwo="0"/>
+        <talentSpec active="1" group="1" icon="ability_racial_bearform" prim="Feral Combat" treeOne="0" treeThree="15" treeTwo="56"/>
+      </talentSpecs>
+
+      <buffs/>
+      <debuffs/>
+      <pvp>
+        <lifetimehonorablekills value="5016"/>
+        <arenacurrency value="0"/>
+      </pvp>
+      <professions>
+        <skill id="333" key="enchanting" max="450" name="Enchanting" value="421"/>
+        <skill id="393" key="skinning" max="450" name="Skinning" value="450"/>
+
+      </professions>
+      <characterBars>
+        <health effective="29117"/>
+        <secondBar casting="0" effective="6081" notCasting="40" type="m"/>
+      </characterBars>
+      <baseStats>
+        <strength attack="594" base="90" block="-1" effective="307"/>
+        <agility armor="2386" attack="-1" base="91" critHitPercent="21.79" effective="1193"/>
+        <stamina base="103" effective="2188" health="21700" petBonus="-1"/>
+
+        <intellect base="181" critHitPercent="3.00" effective="191" mana="2585" petBonus="-1"/>
+        <spirit base="168" effective="176" healthRegen="14" manaRegen="40"/>
+        <armor base="8977" effective="8977" percent="37.08" petBonus="-1"/>
+      </baseStats>
+      <resistances>
+        <arcane petBonus="-1" value="0"/>
+        <fire petBonus="-1" value="0"/>
+        <frost petBonus="-1" value="0"/>
+        <holy petBonus="-1" value="0"/>
+
+        <nature petBonus="-1" value="0"/>
+        <shadow petBonus="-1" value="0"/>
+      </resistances>
+      <melee>
+        <mainHandDamage dps="395.6" max="989" min="773" percent="0" speed="2.23"/>
+        <offHandDamage dps="77.3" max="144" min="143" percent="0" speed="1.86"/>
+        <mainHandSpeed hastePercent="7.77" hasteRating="196" value="2.23"/>
+        <offHandSpeed hastePercent="7.77" hasteRating="196" value="1.86"/>
+        <power base="594" effective="1819" increasedDps="129.0"/>
+
+        <hitRating increasedHitPercent="10.40" penetration="256" reducedArmorPercent="18.29" value="341"/>
+        <critChance percent="26.73" plusPercent="5.05" rating="232"/>
+        <expertise additional="15" percent="6.25" rating="123" value="25"/>
+      </melee>
+      <ranged>
+        <weaponSkill rating="0" value="0"/>
+        <damage dps="0.0" max="0" min="0" percent="0" speed="0.00"/>
+        <speed hastePercent="7.77" hasteRating="196" value="0.00"/>
+        <power base="1183" effective="2408" increasedDps="172.0" petAttack="-1.00" petSpell="-1.00"/>
+
+        <hitRating increasedHitPercent="10.40" penetration="256" reducedArmorPercent="18.29" value="341"/>
+        <critChance percent="11.53" plusPercent="5.05" rating="232"/>
+      </ranged>
+      <spell>
+        <bonusDamage>
+          <arcane value="0"/>
+          <fire value="0"/>
+          <frost value="0"/>
+          <holy value="0"/>
+
+          <nature value="0"/>
+          <shadow value="0"/>
+          <petBonus attack="-1" damage="-1" fromType=""/>
+        </bonusDamage>
+        <bonusHealing value="0"/>
+        <hitRating increasedHitPercent="13.00" penetration="0" reducedResist="0" value="341"/>
+        <critChance rating="232">
+          <arcane percent="8.05"/>
+          <fire percent="8.05"/>
+
+          <frost percent="8.05"/>
+          <holy percent="8.05"/>
+          <nature percent="8.05"/>
+          <shadow percent="8.05"/>
+        </critChance>
+        <penetration value="0"/>
+        <manaRegen casting="0.00" notCasting="40.00"/>
+        <hasteRating hastePercent="7.77" hasteRating="196"/>
+      </spell>
+
+      <defenses>
+        <armor base="8977" effective="8977" percent="37.08" petBonus="-1"/>
+        <defense decreasePercent="1.24" increasePercent="1.24" plusDefense="31" rating="156" value="400.00"/>
+        <dodge increasePercent="3.65" percent="30.53" rating="165"/>
+        <parry increasePercent="0.75" percent="0.00" rating="34"/>
+        <block increasePercent="0.00" percent="0.00" rating="0"/>
+        <resilience damagePercent="0.35" hitPercent="0.16" value="15.00"/>
+      </defenses>
+      <items>
+
+        <item durability="70" gem0Id="41380" gem1Id="40165" gem2Id="0" icon="inv_helmet_139" id="47689" maxDurability="70" permanentenchant="3818" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="0" slot="0"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_belt_12" id="49306" maxDurability="0" permanentenchant="0" pickUp="PickUpRing" putDown="PutDownRing" randomPropertiesId="0" rarity="0" seed="0" slot="1"/>
+        <item durability="70" gem0Id="40112" gem1Id="0" gem2Id="0" icon="inv_shoulder_89" id="47708" maxDurability="70" permanentenchant="3852" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="0" slot="2"/>
+        <item durability="120" gem0Id="40112" gem1Id="40119" gem2Id="0" icon="inv_chest_chain_15" id="46159" maxDurability="120" permanentenchant="3252" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="0" slot="4"/>
+        <item durability="40" gem0Id="40119" gem1Id="40112" gem2Id="40119" icon="inv_misc_noose_01" id="50995" maxDurability="40" permanentenchant="0" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="0" slot="5"/>
+        <item durability="90" gem0Id="40119" gem1Id="40130" gem2Id="0" icon="inv_pants_mail_25" id="45846" maxDurability="90" permanentenchant="3822" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="0" slot="6"/>
+        <item durability="60" gem0Id="45880" gem1Id="0" gem2Id="0" icon="inv_boots_leather_02" id="47608" maxDurability="60" permanentenchant="1075" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="0" slot="7"/>
+        <item durability="40" gem0Id="39997" gem1Id="0" gem2Id="0" icon="inv_bracer_07" id="39765" maxDurability="40" permanentenchant="3231" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="993278656" slot="8"/>
+        <item durability="40" gem0Id="40086" gem1Id="0" gem2Id="0" icon="inv_gauntlets_25" id="46158" maxDurability="40" permanentenchant="3222" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="1646083968" slot="9"/>
+
+        <item durability="0" gem0Id="40119" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_60" id="47243" maxDurability="0" permanentenchant="3791" pickUp="PickUpRing" putDown="PutDownRing" randomPropertiesId="0" rarity="0" seed="1175606144" slot="10"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_84" id="50375" maxDurability="0" permanentenchant="3791" pickUp="PickUpMetalSmall" putDown="PutDownSmallMEtal" randomPropertiesId="0" rarity="0" seed="1221178624" slot="11"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_gem_bloodstone_02" id="47216" maxDurability="0" permanentenchant="0" pickUp="PickUpWand" putDown="PutDownWand" randomPropertiesId="0" rarity="0" seed="1307727936" slot="12"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_spiritshard_01" id="47735" maxDurability="0" permanentenchant="0" pickUp="PickUpWand" putDown="PutDownWand" randomPropertiesId="0" rarity="0" seed="0" slot="13"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_cape_20" id="40722" maxDurability="0" permanentenchant="1099" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="0" seed="0" slot="14"/>
+        <item durability="120" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_staff_90" id="40280" maxDurability="120" permanentenchant="1103" pickUp="PutDownWoodSmall" putDown="PutDownWoodLarge" randomPropertiesId="0" rarity="0" seed="949807744" slot="15"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_qirajidol_strife" id="45509" maxDurability="0" permanentenchant="0" pickUp="PickUpWoodSmall" putDown="PutDownWoodSmall" randomPropertiesId="0" rarity="0" seed="0" slot="17"/>
+      </items>
+      <glyphs>
+
+        <glyph effect="While Frenzied Regeneration is active, healing effects on you are 20% more powerful." icon="ui-glyph-rune-13" id="161" name="Glyph of Frenzied Regeneration" type="major"/>
+        <glyph effect="Your Rebirth spell no longer requires a reagent." icon="ui-glyph-rune-8" id="434" name="Glyph of Unburdened Rebirth" type="minor"/>
+        <glyph effect="Mana cost of your Mark of the Wild and Gift of the Wild spells reduced by 50%." icon="ui-glyph-rune-12" id="433" name="Glyph of the Wild" type="minor"/>
+        <glyph effect="Your Maul ability now hits 1 additional target." icon="ui-glyph-rune-12" id="162" name="Glyph of Maul" type="major"/>
+        <glyph effect="Increases the duration of your Thorns ability by 50 min when cast on yourself." icon="ui-glyph-rune-1" id="435" name="Glyph of Thorns" type="minor"/>
+        <glyph effect="Increases the chance for your Growl ability to work successfully by 8%." icon="ui-glyph-rune-9" id="163" name="Glyph of Growling" type="major"/>
+      </glyphs>
+    </characterTab>
+    <summary>
+
+      <c earned="329" points="3520" total="1054" totalPoints="11635"/>
+      <category id="92" name="General">
+        <c earned="24" earnedPoints="255" total="54" totalPoints="570"/>
+      </category>
+      <category id="96" name="Quests">
+        <c earned="19" earnedPoints="190" total="49" totalPoints="530"/>
+      </category>
+      <category id="97" name="Exploration">
+        <c earned="67" earnedPoints="770" total="70" totalPoints="830"/>
+
+      </category>
+      <category id="95" name="Player vs. Player">
+        <c earned="32" earnedPoints="330" total="166" totalPoints="1930"/>
+      </category>
+      <category id="168" name="Dungeons &amp; Raids">
+        <c earned="141" earnedPoints="1490" total="454" totalPoints="4915"/>
+      </category>
+      <category id="169" name="Professions">
+        <c earned="27" earnedPoints="270" total="75" totalPoints="760"/>
+
+      </category>
+      <category id="201" name="Reputation">
+        <c earned="10" earnedPoints="125" total="45" totalPoints="560"/>
+      </category>
+      <category id="155" name="World Events">
+        <c earned="9" earnedPoints="90" total="141" totalPoints="1540"/>
+      </category>
+      <category id="81" name="Feats of Strength">
+        <c earned="6"/>
+
+      </category>
+    </summary>
+  </characterInfo>
+</page>
