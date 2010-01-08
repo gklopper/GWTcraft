@@ -1,4 +1,4 @@
-package com.gwtcraft.client.ui.search;
+package com.gwtcraft.client.view.search;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;

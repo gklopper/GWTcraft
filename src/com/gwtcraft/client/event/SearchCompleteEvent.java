@@ -1,16 +1,30 @@
 package com.gwtcraft.client.event;
 
-import com.gwtcraft.client.model.CharacterSearchResult;
+import java.util.List;
 
-public class SearchCompleteEvent extends Event {
+import com.google.gwt.event.shared.GwtEvent;
+import com.gwtcraft.client.model.ArmoryCharacter;
+
+public class SearchCompleteEvent extends GwtEvent<SearchCompleteEventHandler> {
+
+	public static Type<SearchCompleteEventHandler> TYPE = new Type<SearchCompleteEventHandler>();
+	private final List<ArmoryCharacter> characters;
+
+	public SearchCompleteEvent(List<ArmoryCharacter> characters) {
+		this.characters = characters;
+	}
 	
-	private CharacterSearchResult result;
-
-	public SearchCompleteEvent(CharacterSearchResult result) {
-		this.result = result;
+	@Override
+	protected void dispatch(SearchCompleteEventHandler handler) {
+		handler.onSearchComplete(this);
 	}
 
-	public CharacterSearchResult getResult() {
-		return result;
+	@Override
+	public Type<SearchCompleteEventHandler> getAssociatedType() {
+		return TYPE;
+	}
+
+	public List<ArmoryCharacter> getCharacters() {
+		return characters;
 	}
 }

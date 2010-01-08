@@ -8,7 +8,6 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import com.gwtcraft.client.model.ArmoryCharacter;
-import com.gwtcraft.client.model.CharacterSearchResult;
 import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
 
@@ -19,11 +18,11 @@ public class ArmoryParserTest {
 		Assert.assertNotNull(xmlStream);
 		
 		ArmoryParser parser = new ArmoryParser();
-		CharacterSearchResult search = parser.parseCharacterSearch(xmlStream);
+		List<ArmoryCharacter> characters = parser.parseCharacterSearch(xmlStream);
 		
-		Assert.assertEquals(4, search.getCharacters().size());
+		Assert.assertEquals(4, characters.size());
 		
-		ArmoryCharacter takbok = search.getCharacters().get(3);
+		ArmoryCharacter takbok = characters.get(3);
 		Assert.assertEquals("Eonar", takbok.getRealm());
 		Assert.assertEquals("Takbok", takbok.getName());
 	}

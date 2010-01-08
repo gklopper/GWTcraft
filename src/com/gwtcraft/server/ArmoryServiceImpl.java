@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.cache.Cache;
@@ -14,7 +15,7 @@ import javax.cache.CacheManager;
 import com.google.appengine.api.memcache.stdimpl.GCacheFactory;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.gwtcraft.client.GwtCraftException;
-import com.gwtcraft.client.model.CharacterSearchResult;
+import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.service.ArmoryService;
 
 @SuppressWarnings("serial")
@@ -37,10 +38,10 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@SuppressWarnings("unchecked")
-	public CharacterSearchResult search(String searchTerm) {
+	public List<ArmoryCharacter> search(String searchTerm) {
 		try {
 			String cacheKey = CacheKeyService.key(searchTerm);
-			CharacterSearchResult characters = (CharacterSearchResult) cache.get(cacheKey);
+			List<ArmoryCharacter> characters = (List<ArmoryCharacter>) cache.get(cacheKey);
 			
 			if (characters == null) {
 				URL url = new URL("http://eu.wowarmory.com/search.xml?searchQuery=" + searchTerm);
