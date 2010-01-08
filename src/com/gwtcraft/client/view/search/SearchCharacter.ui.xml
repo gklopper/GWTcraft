@@ -13,7 +13,7 @@
 
 	<g:FlowPanel styleName="{common.underline}">
 		<g:Label ui:field="name" styleName="{common.defaultFont}"/>
-		<g:Label styleName="{style.realm} {common.defaultFont}" ui:field="realm" />
+		<g:Label ui:field="realm" styleName="{style.realm} {common.defaultFont}"/>
 	</g:FlowPanel>
 
 </ui:UiBinder> 

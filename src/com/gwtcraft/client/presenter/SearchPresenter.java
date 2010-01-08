@@ -10,6 +10,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
@@ -65,11 +66,18 @@ public class SearchPresenter implements Presenter {
 				for (ArmoryCharacter character : characters) {
 					display.getResultArea().add(new SearchCharacter(character));
 				}
+				
+				if (characters.isEmpty()) {
+					display.getResultArea().add(new Label("Search returned no results"));
+				}
 			}
 			
 			@Override
 			public void onFailure(Throwable caught) {
-				Window.alert(caught.getMessage());
+				display.getResultArea().clear();
+				display.getResultArea().add(new Label("An error has occurred:" ));
+				display.getResultArea().add(new Label("\"" + caught.getMessage() + "\""));
+				display.getResultArea().add(new Label("Please try search again"));
 			}
 		});
 	}
