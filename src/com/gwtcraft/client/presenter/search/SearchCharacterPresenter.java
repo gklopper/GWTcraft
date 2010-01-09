@@ -1,14 +1,14 @@
-package com.gwtcraft.client.presenter;
+package com.gwtcraft.client.presenter.search;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.event.CharacterSelectedEvent;
+import com.gwtcraft.client.presenter.Presenter;
 
 public class SearchCharacterPresenter implements Presenter {
 

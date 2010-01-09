@@ -1,4 +1,4 @@
-package com.gwtcraft.client.presenter;
+package com.gwtcraft.client.presenter.search;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.ArmoryCharacter;
+import com.gwtcraft.client.presenter.Presenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 import com.gwtcraft.client.view.search.SearchCharacterDisplay;
 import com.gwtcraft.client.view.util.Spinner;

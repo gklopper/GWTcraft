@@ -11,7 +11,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.presenter.SearchPresenter.Display;
+import com.gwtcraft.client.presenter.search.SearchPresenter.Display;
 
 public class SearchView extends Composite implements Display {
 

@@ -1,6 +1,9 @@
 package com.gwtcraft.client.model;
 
-public class Item {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Item implements Serializable{
 
 	private int slot;
 	private int id;

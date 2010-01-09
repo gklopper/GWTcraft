@@ -1,7 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<ui:style>
+	<ui:style >
 		.spinner {
 			display: block;
 			margin-left: auto;
@@ -12,6 +12,6 @@
 		}
 	</ui:style>
 	<g:FlowPanel styleName="{style.spinnerWrapper}">
-		<g:Image styleName="{style.spinner}" url="/images/loader.gif" />
+		<g:Image ui:field="image" styleName="{style.spinner}" url="/images/loader.gif"/>
 	</g:FlowPanel>
 </ui:UiBinder> 

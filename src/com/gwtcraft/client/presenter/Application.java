@@ -5,7 +5,12 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.HasWidgets;
+import com.gwtcraft.client.event.CharacterSelectedEvent;
+import com.gwtcraft.client.event.CharacterSelectedEventHandler;
+import com.gwtcraft.client.presenter.character.CharacterItemsPresenter;
+import com.gwtcraft.client.presenter.search.SearchPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
+import com.gwtcraft.client.view.character.CharacterItemsDisplay;
 import com.gwtcraft.client.view.search.SearchView;
 
 public class Application implements Presenter, ValueChangeHandler<String> {
@@ -24,6 +29,18 @@ public class Application implements Presenter, ValueChangeHandler<String> {
 	
 	private void bind() {
 		History.addValueChangeHandler(this);
+		eventBus.addHandler(CharacterSelectedEvent.TYPE, new CharacterSelectedEventHandler() {
+			@Override
+			public void onCharacterSelected(CharacterSelectedEvent event) {
+				showCharacter(event.getName(), event.getRealm());
+			}
+		});
+	}
+
+	private void showCharacter(String name, String realm) {
+		container.clear();
+		CharacterItemsDisplay view = new CharacterItemsDisplay(name, realm);
+		new CharacterItemsPresenter(armoryService, eventBus, view).go(container);
 	}
 
 	@Override

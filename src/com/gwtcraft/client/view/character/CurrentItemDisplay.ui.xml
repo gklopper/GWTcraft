@@ -1,0 +1,15 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:util="urn:import:com.gwtcraft.client.view.util">
+	
+	<ui:style field="common" src="../common.css"/>
+	
+	<g:FlowPanel styleName="{common.underline}">
+ 		<util:HiddenWithValue ui:field="slotId"/>
+		<util:HiddenWithValue ui:field="itemId"/>
+		<g:FlowPanel ui:field="detailsWrapper">
+			<util:Spinner/>
+		</g:FlowPanel>	
+	</g:FlowPanel>
+</ui:UiBinder> 

@@ -4,10 +4,14 @@
 	
 	<ui:style field="common" src="../common.css"/>
 
-	<ui:style>	
+	<ui:style type="com.gwtcraft.client.view.search.SearchCharacterDisplay.Style">	
 		.realm {
 			color: graytext;
 			font-style: italic;
+		}
+		
+		.selected {
+			background-color: #C0C0C0;
 		}
 	</ui:style>
 

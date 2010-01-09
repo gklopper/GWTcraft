@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <?xml-stylesheet type="text/xsl" href="/_layout/character/sheet.xsl"?>
+  <page globalSearch="1" lang="en_us" requestUrl="/character-sheet.xml">
+  <tabInfo subTab="profile" tab="character" tabGroup="character" tabUrl="r=Shattered+Halls&amp;cn=Takbok"/>
+  <characterInfo errCode="noCharacter">
+    <character battleGroup="Vindication" charUrl="r=Shattered+Halls&amp;n=Takbok" class="Druid" classId="11" classUrl="c=Druid" faction="Horde" factionId="1" gender="Female" genderId="1" guildName="" level="71" name="Takbok" race="Tauren" raceId="6" realm="Shattered Halls"/>
+  </characterInfo>
+</page>

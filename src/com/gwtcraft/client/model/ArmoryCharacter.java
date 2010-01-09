@@ -8,6 +8,7 @@ public class ArmoryCharacter implements Serializable {
 	
 	private String name;
 	private String realm;
+	private Integer searchRank;
 	
 	public String getName() {
 		return name;
@@ -20,6 +21,12 @@ public class ArmoryCharacter implements Serializable {
 	}
 	public void setRealm(String realm) {
 		this.realm = realm;
+	}
+	public Integer getSearchRank() {
+		return searchRank;
+	}
+	public void setSearchRank(Integer searchRank) {
+		this.searchRank = searchRank;
 	}
 
 }

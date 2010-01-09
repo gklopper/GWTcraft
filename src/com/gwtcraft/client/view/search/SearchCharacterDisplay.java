@@ -1,15 +1,18 @@
 package com.gwtcraft.client.view.search;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.presenter.SearchCharacterPresenter.Display;
+import com.gwtcraft.client.presenter.search.SearchCharacterPresenter.Display;
 
 public class SearchCharacterDisplay extends Composite implements Display {
 
@@ -17,6 +20,10 @@ public class SearchCharacterDisplay extends Composite implements Display {
 			.create(SearchCharacterUiBinder.class);
 
 	interface SearchCharacterUiBinder extends UiBinder<Widget, SearchCharacterDisplay> {
+	}
+	
+	interface Style extends CssResource {
+		String selected();
 	}
 
 	@UiField
@@ -27,6 +34,9 @@ public class SearchCharacterDisplay extends Composite implements Display {
 	
 	@UiField
 	FocusPanel characterArea;
+	
+	@UiField
+	Style style;
 
 	public SearchCharacterDisplay(String name, String realm) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -52,5 +62,13 @@ public class SearchCharacterDisplay extends Composite implements Display {
 	@Override
 	public HasClickHandlers getSelectedButton() {
 		return characterArea;
+	}
+	
+	//this handler is here as it is purely a view thing
+	//it contains no business logic thus it is not in the
+	//presenter
+	@UiHandler("characterArea")
+	public void onClick(ClickEvent event) {
+		characterArea.addStyleName(style.selected());
 	}
 }

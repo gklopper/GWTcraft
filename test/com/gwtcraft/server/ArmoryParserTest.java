@@ -25,6 +25,7 @@ public class ArmoryParserTest {
 		ArmoryCharacter takbok = characters.get(3);
 		Assert.assertEquals("Eonar", takbok.getRealm());
 		Assert.assertEquals("Takbok", takbok.getName());
+		Assert.assertEquals(4, takbok.getSearchRank().intValue());
 	}
 	
 	@Test
@@ -45,6 +46,17 @@ public class ArmoryParserTest {
 	}
 	
 	@Test
+	public void shouldReturnEmptyResultsWhenCharacterNotFound() {
+		InputStream xmlStream = getClass().getResourceAsStream("character-not-found.xml");
+		Assert.assertNotNull(xmlStream);
+		
+		ArmoryParser parser = new ArmoryParser();
+		List<Item> items = parser.parseItems(xmlStream);
+		
+		Assert.assertEquals(0, items.size());
+	}
+	
+	@Test
 	public void shouldParseItemDetail() {
 		InputStream xmlStream = getClass().getResourceAsStream("item.xml");
 		Assert.assertNotNull(xmlStream);
@@ -53,12 +65,7 @@ public class ArmoryParserTest {
 		ItemDetail item = parser.parseItem(xmlStream);
 		
 		Assert.assertEquals(47708, item.getId());
-		Assert.assertEquals(47708, item.getId());
-		Assert.assertEquals(47708, item.getId());
-		Assert.assertEquals(47708, item.getId());
-		Assert.assertEquals(47708, item.getId());
-		Assert.assertEquals(47708, item.getId());
-		
-		
+		Assert.assertEquals("Duskstalker Shoulderpads", item.getName());
+		Assert.assertEquals(101, item.getStamina().intValue());
 	}
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:util="urn:import:com.gwtcraft.client.view.util">
+
+	<g:FlowPanel>
+		<g:FlowPanel>
+			<g:Label ui:field="name"/>
+			<g:Label ui:field="realm"/>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="itemsWrapper">
+			<util:Spinner/>
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 
