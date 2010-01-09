@@ -6,7 +6,6 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -14,7 +13,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
-import com.gwtcraft.client.view.search.SearchCharacter;
+import com.gwtcraft.client.view.search.SearchCharacterDisplay;
 import com.gwtcraft.client.view.util.Spinner;
 
 public class SearchPresenter implements Presenter {
@@ -64,20 +63,21 @@ public class SearchPresenter implements Presenter {
 			public void onSuccess(List<ArmoryCharacter> characters) {
 				display.getResultArea().clear();
 				for (ArmoryCharacter character : characters) {
-					display.getResultArea().add(new SearchCharacter(character));
+					SearchCharacterDisplay characterView = new SearchCharacterDisplay(character.getName(), character.getRealm());
+					new SearchCharacterPresenter(eventBus, characterView).go(display.getResultArea());
 				}
 				
 				if (characters.isEmpty()) {
 					display.getResultArea().add(new Label("Search returned no results"));
 				}
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				display.getResultArea().clear();
 				display.getResultArea().add(new Label("An error has occurred:" ));
 				display.getResultArea().add(new Label("\"" + caught.getMessage() + "\""));
-				display.getResultArea().add(new Label("Please try search again"));
+				display.getResultArea().add(new Label("Please try search again..."));
 			}
 		});
 	}
