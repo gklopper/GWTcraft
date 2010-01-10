@@ -61,11 +61,58 @@ public class ArmoryParser {
 		ItemDetail item = new ItemDetail();
 		item.setId(itemElement.element("id").value().toInteger());
 		item.setName(itemElement.element("name").value().toString());
+		item.setIcon(itemElement.element("icon").value().toString());
 		
 		//stats
 		item.setStamina(intValueOrZero(itemElement.element("bonusStamina")));
+		item.setIntellect(intValueOrZero(itemElement.element("bonusIntellect")));
+		item.setSpirit(intValueOrZero(itemElement.element("bonusSpirit")));
+		item.setSpellPower(intValueOrZero(itemElement.element("bonusSpellPower")));
 		item.setAgility(intValueOrZero(itemElement.element("bonusAgility")));
 		item.setArmor(intValueOrZero(itemElement.element("armor")));
+		item.setAttackPower(intValueOrZero(itemElement.element("bonusAttackPower")));
+		item.setCritRating(intValueOrZero(itemElement.element("bonusCritRating")));
+		item.setArmorPenetration(intValueOrZero(itemElement.element("bonusArmorPenetration")));
+		item.setStrength(intValueOrZero(itemElement.element("bonusStrength")));
+		item.setDodgeRating(intValueOrZero(itemElement.element("bonusDodgeRating")));
+		item.setExpertiseRating(intValueOrZero(itemElement.element("bonusExpertiseRating")));
+		item.setParryRating(intValueOrZero(itemElement.element("bonusParryRating")));
+		
+		//sockets
+		Element socketData = itemElement.element("socketData");
+		if (socketData != null) {
+			for (Element socket : socketData.elements("socket")) {
+				String colour = socket.attribute("color").toString();
+				if ("Yellow".equals(colour)) {
+					item.setYellowSockets(item.getYellowSockets() + 1);
+				}
+				if ("Blue".equals(colour)) {
+					item.setBlueSockets(item.getBlueSockets() + 1);
+				}
+				if ("Red".equals(colour)) {
+					item.setRedSockets(item.getRedSockets() + 1);
+				}
+				if ("Meta".equals(colour)) {
+					item.setMetaSockets(item.getMetaSockets() + 1);
+				}
+			}
+		}
+		
+		//spells
+		Element spellData = itemElement.element("spellData");
+		if (spellData != null) {
+			for (Element spell : spellData.elements("spell")) {
+				
+				if (spell.element("trigger").value().toInteger().equals(0)) {
+					item.getUse().add(spell.element("desc").value().toString());
+				}
+				
+				if (spell.element("trigger").value().toInteger().equals(1)) {
+					item.getEquip().add(spell.element("desc").value().toString());
+				}
+			}
+		} 
+		
 		return item;
 	}
 

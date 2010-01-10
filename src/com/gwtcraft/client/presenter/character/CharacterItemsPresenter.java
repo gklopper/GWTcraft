@@ -31,7 +31,6 @@ public class CharacterItemsPresenter implements Presenter {
 		this.armoryService = armoryService;
 		this.eventBus = eventBus;
 		this.display = view;
-		bind();
 	}
 	
 	private void bind() {

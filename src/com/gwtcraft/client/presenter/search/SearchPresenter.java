@@ -6,6 +6,8 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.http.client.URL;
+import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -27,6 +29,7 @@ public class SearchPresenter implements Presenter {
 		HasClickHandlers getSearchButton();
 		HasValue<String> getSearchField();
 		HasWidgets getResultArea();
+		HasWidgets getRecentSearches();
 		Widget asWidget();
 	}
 	
@@ -43,13 +46,12 @@ public class SearchPresenter implements Presenter {
 				String searchTerm = display.getSearchField().getValue();
 				search(searchTerm);
 			}
-		});		
+		});	
 	}
 	
 	@Override
 	public void go(HasWidgets container) {
 		bind();
-		display.getResultArea().clear();
 		container.add(display.asWidget());
 	}
 	

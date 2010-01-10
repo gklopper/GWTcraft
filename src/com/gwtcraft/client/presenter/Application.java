@@ -1,9 +1,16 @@
 package com.gwtcraft.client.presenter;
 
+import java.util.Date;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.http.client.URL;
+import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.gwtcraft.client.event.CharacterSelectedEvent;
 import com.gwtcraft.client.event.CharacterSelectedEventHandler;
@@ -24,10 +31,10 @@ public class Application implements Presenter, ValueChangeHandler<String> {
 	public Application(ArmoryServiceAsync armoryService, HandlerManager eventBus) {
 		this.armoryService = armoryService;
 		this.eventBus = eventBus;
-		bind();
+		addHandlers();
 	}
 	
-	private void bind() {
+	private void addHandlers() {
 		History.addValueChangeHandler(this);
 		eventBus.addHandler(CharacterSelectedEvent.TYPE, new CharacterSelectedEventHandler() {
 			@Override

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>49316</id>
+      <name>Circlet of Transcendence</name>
+      <icon>inv_helmet_24</icon>
+      <overallQualityId>4</overallQualityId>
+
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>1</inventoryType>
+        <subclassName>Cloth</subclassName>
+      </equipData>
+      <damageData/>
+
+      <bonusIntellect>70</bonusIntellect>
+      <bonusSpirit>78</bonusSpirit>
+      <bonusStamina>85</bonusStamina>
+      <armor armorBonus="0">258</armor>
+      <fireResist>10</fireResist>
+      <frostResist>10</frostResist>
+
+      <socketData>
+        <socket color="Meta"/>
+        <socket color="Red"/>
+      </socketData>
+      <durability current="60" max="60"/>
+      <allowableClasses>
+        <class>Priest</class>
+      </allowableClasses>
+
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>232</itemLevel>
+      <bonusCritRating>66</bonusCritRating>
+      <bonusSpellPower>132</bonusSpellPower>
+      <itemSource areaId="2159" areaName="Onyxia's Lair" creatureId="10184" creatureName="Onyxia" difficulty="n" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+
+</page>

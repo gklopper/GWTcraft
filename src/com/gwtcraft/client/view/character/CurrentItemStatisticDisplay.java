@@ -24,6 +24,10 @@ public class CurrentItemStatisticDisplay extends Composite implements Display {
 	HasText value;
 
 	public CurrentItemStatisticDisplay(String statistic, Integer value) {
+		this(statistic, String.valueOf(value));
+	}
+	
+	public CurrentItemStatisticDisplay(String statistic, String value) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.statistic.setText(statistic);
 		this.value.setText(String.valueOf(value));

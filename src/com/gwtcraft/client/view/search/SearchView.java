@@ -23,9 +23,12 @@ public class SearchView extends Composite implements Display {
 	
 	@UiField
 	HasValue<String> searchText;
+	
 	@UiField
 	HasWidgets resultsWrapper;
 	
+	@UiField
+	HasWidgets recentSearches;
 	
 	public SearchView() {
 	  initWidget(uiBinder.createAndBindUi(this));
@@ -53,5 +56,11 @@ public class SearchView extends Composite implements Display {
 	@Override
 	public HasValue<String> getSearchField() {
 		return searchText;
+	}
+
+
+	@Override
+	public HasWidgets getRecentSearches() {
+		return recentSearches;
 	}
 }

@@ -25,7 +25,16 @@ public class CurrentItemDisplay extends Composite implements Display{
 	HasValue<String> itemId;
 	
 	@UiField
-	HasWidgets detailsWrapper;
+	HasWidgets baseStats;
+	
+	@UiField
+	HasWidgets otherStats;
+	
+	@UiField
+	HasWidgets spells;
+	
+	@UiField
+	HasWidgets iconWrapper;
 	
 	@UiField
 	HasText name;
@@ -52,12 +61,27 @@ public class CurrentItemDisplay extends Composite implements Display{
 	}
 
 	@Override
-	public HasWidgets getDetails() {
-		return detailsWrapper;
+	public HasText getName() {
+		return name;
 	}
 
 	@Override
-	public HasText getName() {
-		return name;
+	public HasWidgets getIconWrapper() {
+		return iconWrapper;
+	}
+
+	@Override
+	public HasWidgets getBaseStats() {
+		return baseStats;
+	}
+
+	@Override
+	public HasWidgets getOtherStats() {
+		return otherStats;
+	}
+
+	@Override
+	public HasWidgets getSpells() {
+		return spells;
 	}
 }

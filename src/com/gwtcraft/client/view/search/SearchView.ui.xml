@@ -1,19 +1,20 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	
-	<ui:style field="common" src="../common.css"/>
-	
+
+	<ui:style field="common" src="../common.css" />
+		
 	<ui:style>
 		.searchBox {
-		 	height: 34px;
-		 	width: 280px;
-		 	font-family: sans-serif;
-		 	font-size: 18px;
+			height: 34px;
+			width: 280px;
+			font-family: sans-serif;
+			font-size: 18px;
 		}
+		
 		.search {
 			max-height: 40px;
-			min-height: 40px;	
+			min-height: 40px;
 		}
 		
 		.searchButton {
@@ -23,11 +24,29 @@
 	<g:FlowPanel>
 		<g:FlowPanel styleName="{common.underline} {style.search}">
 			<g:HorizontalPanel>
-				<g:TextBox styleName="{style.searchBox} {common.defaultFont}" ui:field="searchText"></g:TextBox>
-				<g:Image styleName="{style.searchButton}" url="/images/search.png" ui:field="search"></g:Image>
+				<g:TextBox styleName="{style.searchBox} {common.defaultFont}"
+					ui:field="searchText"></g:TextBox>
+				<g:Image styleName="{style.searchButton}" url="/images/search.png"
+					ui:field="search"></g:Image>
 			</g:HorizontalPanel>
 		</g:FlowPanel>
-		<g:FlowPanel ui:field="resultsWrapper"></g:FlowPanel>
+		<g:FlowPanel ui:field="resultsWrapper">
+			<g:HTML>
+				<p>
+					Type in the name of your World of Warcraft character in the
+					search box above (currently only EU servers) and hit the search
+					button.
+				</p>
+				<p>
+					This page will work in all browsers, but the screen layout is
+					optimised for high end mobile devices such as the iPhone or Android
+					phones.
+					I might create a layout for desktop browsers in the future.
+				</p>
+			</g:HTML>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="recentSearches">
+		</g:FlowPanel>
 	</g:FlowPanel>
-	
+
 </ui:UiBinder> 

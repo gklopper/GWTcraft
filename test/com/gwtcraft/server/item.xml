@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
-<page globalSearch="1" lang="en_gb" requestUrl="/item-tooltip.xml">
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
   <itemTooltips>
     <itemTooltip>
       <id>47708</id>
@@ -19,20 +19,19 @@
       <bonusAgility>93</bonusAgility>
       <bonusStamina>101</bonusStamina>
       <armor armorBonus="0">467</armor>
-      <enchant>+30 Stamina and +15 Resilience Rating</enchant>
       <socketData>
-        <socket color="Yellow" enchant="+20 Agility" icon="inv_jewelcrafting_gem_37"/>
-        <socketMatchEnchant>+8 Attack Power</socketMatchEnchant>
-
+        <socket color="Yellow"/>
       </socketData>
       <durability current="70" max="70"/>
+
       <requiredLevel>80</requiredLevel>
       <itemLevel>245</itemLevel>
       <bonusAttackPower>135</bonusAttackPower>
       <bonusCritRating>67</bonusCritRating>
       <bonusArmorPenetration>59</bonusArmorPenetration>
-
       <itemSource value="sourceType.vendor"/>
+
     </itemTooltip>
   </itemTooltips>
 </page>
+

@@ -12,8 +12,8 @@ import com.gwtcraft.client.service.ArmoryServiceAsync;
 public class GwtCraft implements EntryPoint {
 	
 	public void onModuleLoad() {
-		ArmoryServiceAsync armoryService = GWT.create(ArmoryService.class);
 		
+		ArmoryServiceAsync armoryService = GWT.create(ArmoryService.class);
 		HandlerManager eventBus = new HandlerManager(null);
 		
 		Application app = new Application(armoryService, eventBus);

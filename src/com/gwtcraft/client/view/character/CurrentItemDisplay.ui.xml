@@ -5,12 +5,23 @@
 	
 	<ui:style field="common" src="../common.css"/>
 	
+	<ui:style>
+		.details {
+			padding-left: 4px;
+		}
+	</ui:style>
+	
 	<g:FlowPanel styleName="{common.underline}">
  		<util:HiddenWithValue ui:field="slotId"/>
 		<util:HiddenWithValue ui:field="itemId"/>
 		<g:Label styleName="{common.defaultFont}" ui:field="name"/>
-		<g:FlowPanel ui:field="detailsWrapper">
-			<util:Spinner/>
-		</g:FlowPanel>	
+		<g:HorizontalPanel>
+			<g:FlowPanel ui:field="iconWrapper">
+				<g:HTML><img src="/images/loader.gif" width="15px" height="15px"/></g:HTML>				
+			</g:FlowPanel>
+			<g:FlowPanel ui:field="baseStats" styleName="{style.details}"></g:FlowPanel>
+			<g:FlowPanel ui:field="otherStats" styleName="{style.details}"></g:FlowPanel>
+		</g:HorizontalPanel>
+		<g:FlowPanel ui:field="spells" styleName="{style.details}"></g:FlowPanel>
 	</g:FlowPanel>
 </ui:UiBinder> 
