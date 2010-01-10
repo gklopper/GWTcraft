@@ -52,55 +52,55 @@ public class CurrentItemPresenter implements Presenter {
 				// base stats
 				if (result.getArmor() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Armor", result.getArmor());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				if (result.getStamina() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Stamina", result.getStamina());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				if (result.getAgility() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Agility", result.getAgility());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				if (result.getIntellect() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Intellect", result.getIntellect());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				if (result.getSpirit() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Spirit", result.getSpirit());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				//specific stats
 				if (result.getAttackPower() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Attack Power", result.getAttackPower());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				if (result.getCritRating() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Crit Rating", result.getCritRating());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				if (result.getArmorPenetration() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Armor Penetration", result.getArmorPenetration());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				if (result.getExpertiseRating() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Expertise", result.getExpertiseRating());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				//TODO hit
 				
 				if (result.getSpellPower() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Spell power", result.getSpellPower());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				//TODO healing ???
@@ -113,17 +113,17 @@ public class CurrentItemPresenter implements Presenter {
 				
 				if (result.getDodgeRating() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Dodge", result.getDodgeRating());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				if (result.getParryRating() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Parry", result.getParryRating());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				if (result.getStrength() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Strength", result.getStrength());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getOtherStats());
+					new CurrentItemStatisticPresenter(view).go(display.getOtherStats());
 				}
 				
 				//TODO block
@@ -131,34 +131,34 @@ public class CurrentItemPresenter implements Presenter {
 				
 				if (result.getMetaSockets() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Meta socket", result.getMetaSockets());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				if (result.getRedSockets() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Red socket", result.getRedSockets());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				if (result.getYellowSockets() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Yellow socket", result.getYellowSockets());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				if (result.getBlueSockets() > 0) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Blue socket", result.getBlueSockets());
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getBaseStats());
 				}
 				
 				//TODO resistances
 				
 				for (String use : result.getUse()) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Use", use);
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getBaseStats());
+					new CurrentItemStatisticPresenter(view).go(display.getSpells());
 				}
 				
 				for (String equip : result.getEquip()) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Equip", equip);
-					new CurrentItemStatisticPresenter(armoryService, eventBus, view).go(display.getSpells());
+					new CurrentItemStatisticPresenter(view).go(display.getSpells());
 				}
 			}
 			

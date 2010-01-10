@@ -9,7 +9,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import javax.cache.Cache;
 import javax.cache.CacheException;
@@ -28,7 +27,6 @@ import com.gwtcraft.client.service.ArmoryService;
 public class ArmoryServiceImpl extends RemoteServiceServlet implements
 		ArmoryService {
 	private static final String USER_AGENT = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5";
-	private static final Logger LOGGER = Logger.getLogger(ArmoryServiceImpl.class.getName()); 
 	
 	private Cache cache15min;
 	private Cache cache24hours;
@@ -88,7 +86,6 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 				String urlString = String.format("http://eu.wowarmory.com/character-sheet.xml?r=%s&n=%s", 
 						URLEncoder.encode(realm, "UTF-8"), 
 						URLEncoder.encode(name, "UTF-8"));
-				LOGGER.severe("Loading items from: " + urlString);
 				URL url = new URL(urlString);
 				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 				connection.setRequestProperty("User-Agent", USER_AGENT);

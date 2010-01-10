@@ -6,13 +6,12 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.http.client.URL;
-import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtcraft.client.event.SearchInitiatedEvent;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.presenter.Presenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
@@ -24,6 +23,7 @@ public class SearchPresenter implements Presenter {
 	private final ArmoryServiceAsync armoryService;
 	private final HandlerManager eventBus;
 	private final Display display;
+	private final String searchTerm;
 
 	public interface Display {
 		HasClickHandlers getSearchButton();
@@ -34,9 +34,14 @@ public class SearchPresenter implements Presenter {
 	}
 	
 	public SearchPresenter(ArmoryServiceAsync armoryService, HandlerManager eventBus, Display view) {
+		this(armoryService, eventBus, view, null);
+	}
+	
+	public SearchPresenter(ArmoryServiceAsync armoryService, HandlerManager eventBus, Display view, String searchTerm) {
 		this.armoryService = armoryService;
 		this.eventBus = eventBus;
 		this.display = view;
+		this.searchTerm = searchTerm;
 	}
 	
 	private void bind() {
@@ -44,9 +49,14 @@ public class SearchPresenter implements Presenter {
 			@Override
 			public void onClick(ClickEvent event) {
 				String searchTerm = display.getSearchField().getValue();
-				search(searchTerm);
+				eventBus.fireEvent(new SearchInitiatedEvent(searchTerm));
 			}
-		});	
+		});
+		
+		if (searchTerm != null) {
+			display.getSearchField().setValue(searchTerm);
+			search(searchTerm);
+		}
 	}
 	
 	@Override

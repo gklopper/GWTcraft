@@ -3,7 +3,6 @@ package com.gwtcraft.client.presenter.character;
 import java.util.List;
 
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -42,6 +41,11 @@ public class CharacterItemsPresenter implements Presenter {
 				for (Item item : result) {
 					CurrentItemDisplay view = new CurrentItemDisplay(item.getId(), item.getSlot());
 					new CurrentItemPresenter(armoryService, eventBus, view).go(display.getItemsWrapper());
+				}
+				
+				if (result.isEmpty()) {
+					display.getItemsWrapper().add(new Label("No items were found for this character."));
+					display.getItemsWrapper().add(new Label("This usually happens when characters have been inactive for a long time."));
 				}
 			}
 			
