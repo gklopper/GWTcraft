@@ -8,9 +8,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.presenter.search.SearchCharacterPresenter.Display;
 
@@ -27,13 +25,13 @@ public class SearchCharacterDisplay extends Composite implements Display {
 	}
 
 	@UiField
-	Label realm;
+	HasText realm;
 	
 	@UiField
-	Label name;
+	HasText name;
 	
 	@UiField
-	FocusPanel characterArea;
+	HasClickHandlers characterArea;
 	
 	@UiField
 	Style style;
@@ -69,6 +67,6 @@ public class SearchCharacterDisplay extends Composite implements Display {
 	//presenter
 	@UiHandler("characterArea")
 	public void onClick(ClickEvent event) {
-		characterArea.addStyleName(style.selected());
+		((Widget)characterArea).addStyleName(style.selected());
 	}
 }

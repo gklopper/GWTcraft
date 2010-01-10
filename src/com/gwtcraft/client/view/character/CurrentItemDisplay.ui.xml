@@ -8,6 +8,7 @@
 	<g:FlowPanel styleName="{common.underline}">
  		<util:HiddenWithValue ui:field="slotId"/>
 		<util:HiddenWithValue ui:field="itemId"/>
+		<g:Label ui:field="name"/>
 		<g:FlowPanel ui:field="detailsWrapper">
 			<util:Spinner/>
 		</g:FlowPanel>	

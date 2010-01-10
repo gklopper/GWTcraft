@@ -21,13 +21,13 @@ public class CharacterItemsDisplay extends Composite implements Display {
 	}
 
 	@UiField
-	FlowPanel itemsWrapper;
+	HasWidgets itemsWrapper;
 	
 	@UiField
-	Label name;
+	HasText name;
 	
 	@UiField
-	Label realm;
+	HasText realm;
 
 	public CharacterItemsDisplay(String name, String realm) {
 		initWidget(uiBinder.createAndBindUi(this));

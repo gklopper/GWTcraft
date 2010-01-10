@@ -67,5 +67,7 @@ public class ArmoryParserTest {
 		Assert.assertEquals(47708, item.getId());
 		Assert.assertEquals("Duskstalker Shoulderpads", item.getName());
 		Assert.assertEquals(101, item.getStamina().intValue());
+		Assert.assertEquals(93, item.getAgility().intValue());
+		Assert.assertEquals(467, item.getArmor().intValue());
 	}
 }

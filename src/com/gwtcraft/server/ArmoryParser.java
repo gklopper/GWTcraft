@@ -64,7 +64,8 @@ public class ArmoryParser {
 		
 		//stats
 		item.setStamina(intValueOrZero(itemElement.element("bonusStamina")));
-		
+		item.setAgility(intValueOrZero(itemElement.element("bonusAgility")));
+		item.setArmor(intValueOrZero(itemElement.element("armor")));
 		return item;
 	}
 

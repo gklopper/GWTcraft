@@ -4,12 +4,11 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.presenter.character.CurrentItemPresenter.Display;
-import com.gwtcraft.client.view.util.HiddenWithValue;
 
 public class CurrentItemDisplay extends Composite implements Display{
 
@@ -20,13 +19,16 @@ public class CurrentItemDisplay extends Composite implements Display{
 	}
 
 	@UiField
-	HiddenWithValue slotId;
+	HasValue<String> slotId;
 	
 	@UiField
-	HiddenWithValue itemId;
+	HasValue<String> itemId;
 	
 	@UiField
-	FlowPanel detailsWrapper;
+	HasWidgets detailsWrapper;
+	
+	@UiField
+	HasText name;
 
 	public CurrentItemDisplay(Integer itemId, Integer slotId) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -52,5 +54,10 @@ public class CurrentItemDisplay extends Composite implements Display{
 	@Override
 	public HasWidgets getDetails() {
 		return detailsWrapper;
+	}
+
+	@Override
+	public HasText getName() {
+		return name;
 	}
 }

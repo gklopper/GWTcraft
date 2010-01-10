@@ -7,14 +7,12 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.gwtcraft.client.presenter.Application;
 import com.gwtcraft.client.service.ArmoryService;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
-import com.gwtcraft.client.service.CachingArmoryServiceAsync;
 
 
 public class GwtCraft implements EntryPoint {
 	
 	public void onModuleLoad() {
 		ArmoryServiceAsync armoryService = GWT.create(ArmoryService.class);
-		armoryService = new CachingArmoryServiceAsync(armoryService);
 		
 		HandlerManager eventBus = new HandlerManager(null);
 		
