@@ -5,11 +5,6 @@
 	<ui:style field="common" src="../common.css"/>
 
 	<ui:style type="com.gwtcraft.client.view.search.SearchCharacterDisplay.Style">	
-		.realm {
-			color: graytext;
-			font-style: italic;
-		}
-		
 		.selected {
 			background-color: #C0C0C0;
 		}
@@ -18,7 +13,7 @@
 	<g:FocusPanel ui:field="characterArea" styleName="{common.underline}">
 		<g:FlowPanel>
 			<g:Label ui:field="name" styleName="{common.defaultFont}"/>
-			<g:Label ui:field="realm" styleName="{style.realm} {common.defaultFont}"/>
+			<g:Label ui:field="realm" styleName="{common.realm} {common.defaultFont}"/>
 			<g:Hidden ui:field="hiddenName"/>
 			<g:Hidden ui:field="hiddenRealm"/>
 		</g:FlowPanel>

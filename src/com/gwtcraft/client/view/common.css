@@ -11,3 +11,8 @@
 	font-family: sans-serif;
 	font-size: 18px;
 }
+
+.realm {
+	color: graytext;
+	font-style: italic;
+}

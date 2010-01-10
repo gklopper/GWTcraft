@@ -3,10 +3,12 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:util="urn:import:com.gwtcraft.client.view.util">
 
+	<ui:style field="common" src="../common.css"/>
+
 	<g:FlowPanel>
-		<g:FlowPanel>
-			<g:Label ui:field="name"/>
-			<g:Label ui:field="realm"/>
+		<g:FlowPanel styleName="{common.underline}">
+			<g:Label styleName="{common.defaultFont}" ui:field="name"/>
+			<g:Label styleName="{common.defaultFont} {common.realm}" ui:field="realm"/>
 		</g:FlowPanel>
 		<g:FlowPanel ui:field="itemsWrapper">
 			<util:Spinner/>
