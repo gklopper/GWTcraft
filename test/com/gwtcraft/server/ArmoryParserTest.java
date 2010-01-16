@@ -10,6 +10,7 @@ import org.junit.Test;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
+import com.gwtcraft.client.model.Statistic;
 
 public class ArmoryParserTest {
 	@Test
@@ -68,14 +69,12 @@ public class ArmoryParserTest {
 		Assert.assertEquals("Duskstalker Shoulderpads", item.getName());
 		Assert.assertEquals("inv_shoulder_89", item.getIcon());
 		
-		Assert.assertEquals(101, item.getStamina().intValue());
-		Assert.assertEquals(93, item.getAgility().intValue());
-		Assert.assertEquals(467, item.getArmor().intValue());
-		Assert.assertEquals(135, item.getAttackPower().intValue());
-		Assert.assertEquals(67, item.getCritRating().intValue());
-		Assert.assertEquals(59, item.getArmorPenetration().intValue());
+		printStats(item.getStatistics());
 		
+		Assert.assertEquals(467, item.getArmor().intValue());
 		Assert.assertEquals(1, item.getYellowSockets().intValue());
+		
+		
 	}
 	
 	@Test
@@ -87,10 +86,6 @@ public class ArmoryParserTest {
 		ItemDetail item = parser.parseItem(xmlStream);
 		
 		Assert.assertEquals(1, item.getBlueSockets().intValue());
-		Assert.assertEquals(48, item.getStrength().intValue());
-		Assert.assertEquals(30, item.getDodgeRating().intValue());
-		Assert.assertEquals(26, item.getExpertiseRating().intValue());
-		Assert.assertEquals(34, item.getParryRating().intValue());
 	}
 	
 	@Test
@@ -123,10 +118,13 @@ public class ArmoryParserTest {
 		ArmoryParser parser = new ArmoryParser();
 		ItemDetail item = parser.parseItem(xmlStream);
 		
-		Assert.assertEquals(70, item.getIntellect().intValue());
-		Assert.assertEquals(78, item.getSpirit().intValue());
 		Assert.assertEquals(1, item.getMetaSockets().intValue());
 		Assert.assertEquals(1, item.getRedSockets().intValue());
-		Assert.assertEquals(132, item.getSpellPower().intValue());
 	}
+	
+	private void printStats(List<Statistic> stats) {
+		for (Statistic stat : stats) {
+			System.out.println(stat);
+		}
+	} 
 }

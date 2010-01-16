@@ -19,8 +19,8 @@
 			<g:FlowPanel ui:field="iconWrapper">
 				<g:HTML><img src="/images/loader.gif" width="15px" height="15px"/></g:HTML>				
 			</g:FlowPanel>
-			<g:FlowPanel ui:field="baseStats" styleName="{style.details}"></g:FlowPanel>
-			<g:FlowPanel ui:field="otherStats" styleName="{style.details}"></g:FlowPanel>
+			<g:FlowPanel ui:field="statsOne" styleName="{style.details}"></g:FlowPanel>
+			<g:FlowPanel ui:field="statsTwo" styleName="{style.details}"></g:FlowPanel>
 		</g:HorizontalPanel>
 		<g:FlowPanel ui:field="spells" styleName="{style.details}"></g:FlowPanel>
 	</g:FlowPanel>

@@ -25,10 +25,10 @@ public class CurrentItemDisplay extends Composite implements Display{
 	HasValue<String> itemId;
 	
 	@UiField
-	HasWidgets baseStats;
+	HasWidgets statsOne;
 	
 	@UiField
-	HasWidgets otherStats;
+	HasWidgets statsTwo;
 	
 	@UiField
 	HasWidgets spells;
@@ -71,13 +71,13 @@ public class CurrentItemDisplay extends Composite implements Display{
 	}
 
 	@Override
-	public HasWidgets getBaseStats() {
-		return baseStats;
+	public HasWidgets getStatsOne() {
+		return statsOne;
 	}
 
 	@Override
-	public HasWidgets getOtherStats() {
-		return otherStats;
+	public HasWidgets getStatsTwo() {
+		return statsTwo;
 	}
 
 	@Override
