@@ -10,18 +10,19 @@
 			padding-left: 4px;
 		}
 	</ui:style>
-	
-	<g:FlowPanel styleName="{common.underline}">
- 		<util:HiddenWithValue ui:field="slotId"/>
-		<util:HiddenWithValue ui:field="itemId"/>
-		<g:Label styleName="{common.defaultFont}" ui:field="name"/>
-		<g:HorizontalPanel>
-			<g:FlowPanel ui:field="iconWrapper">
-				<g:HTML><img src="/images/loader.gif" width="15px" height="15px"/></g:HTML>				
-			</g:FlowPanel>
-			<g:FlowPanel ui:field="statsOne" styleName="{style.details}"></g:FlowPanel>
-			<g:FlowPanel ui:field="statsTwo" styleName="{style.details}"></g:FlowPanel>
-		</g:HorizontalPanel>
-		<g:FlowPanel ui:field="spells" styleName="{style.details}"></g:FlowPanel>
-	</g:FlowPanel>
+	<g:FocusPanel ui:field="selectButton">
+		<g:FlowPanel styleName="{common.underline}">
+	 		<util:HiddenWithValue ui:field="slotId"/>
+			<util:HiddenWithValue ui:field="itemId"/>
+			<g:Label styleName="{common.defaultFont}" ui:field="name"/>
+			<g:HorizontalPanel>
+				<g:FlowPanel ui:field="iconWrapper">
+					<g:HTML><img src="/images/loader.gif" width="15px" height="15px"/></g:HTML>				
+				</g:FlowPanel>
+				<g:FlowPanel ui:field="statsOne" styleName="{style.details}"></g:FlowPanel>
+				<g:FlowPanel ui:field="statsTwo" styleName="{style.details}"></g:FlowPanel>
+			</g:HorizontalPanel>
+			<g:FlowPanel ui:field="spells" styleName="{style.details}"></g:FlowPanel>
+		</g:FlowPanel>
+	</g:FocusPanel>
 </ui:UiBinder> 

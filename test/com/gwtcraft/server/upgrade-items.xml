@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/search/search.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="searchType=items&amp;pr=Eonar&amp;pn=Takbok&amp;pi=47689" requestUrl="/search.xml">
+  <armorySearch>
+    <tabs count="34" selected="items">
+      <tab count="34" label="armory.tabs.items" type="items"/>
+    </tabs>
+    <searchResults pageCount="1" pageCurrent="1" searchError="" searchFilter="pn=Takbok&amp;pr=Eonar&amp;pi=47689" searchMsg="" searchText="" searchType="items" url="searchType=items&amp;searchQuery=&amp;p=1&amp;selectedTab=items&amp;sd=a" version="1.0">
+      <filters>
+        <filter name="source" value="all"/>
+        <filter name="type" value="armor"/>
+
+        <filter name="rrt" value="un"/>
+        <filter name="slot" value="head"/>
+        <filter name="rqrMin" value="77"/>
+        <filter name="selSubTp" value="leather"/>
+        <filter name="usbleBy" value="11"/>
+        <filter name="selId" value="47689"/>
+        <filter name="classType" value="tank"/>
+        <filter name="selType" value="armor"/>
+        <filter name="rqrMax" value="83"/>
+
+        <filter name="selSlot" value="head"/>
+      </filters>
+      <filterColumns>
+        <filter name="requiredLevel" sortName="requiredLevel"/>
+        <filter name="type" sortName="type"/>
+        <filter name="itemLevel" sortName="itemLevel"/>
+        <filter name="source" sortName="source"/>
+        <filter name="metaSockets" selItemValue="1" sortName="metaSockets"/>
+        <filter name="normalSockets" selItemValue="1" sortName="normalSockets"/>
+
+        <filter name="relevance" sortName="relevance"/>
+      </filterColumns>
+      <items pi="47689" pn="Takbok" pr="Eonar">
+        <item icon="inv_helmet_148" id="51296" name="Sanctified Lasherweave Headguard" rarity="4" url="i=51296">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="277"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="81"/>
+        </item>
+        <item icon="inv_helmet_149" id="50713" name="Geistlord's Punishment Sack" rarity="4" url="i=50713">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="277"/>
+          <filter areaId="4812" areaKey="icecrowncitadel25" areaName="Icecrown Citadel (25)" creatureId="38401" creatureName="Prince Valanar" difficulty="h" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="80"/>
+        </item>
+        <item icon="inv_helmet_148" id="51143" name="Sanctified Lasherweave Headguard" rarity="4" url="i=51143">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="264"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="75"/>
+        </item>
+        <item icon="inv_helmet_149" id="50073" name="Geistlord's Punishment Sack" rarity="4" url="i=50073">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="264"/>
+          <filter areaId="4812" areaKey="icecrowncitadel25" areaName="Icecrown Citadel (25)" creatureId="38401" creatureName="Prince Valanar" difficulty="n" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="74"/>
+        </item>
+        <item icon="inv_helmet_139" id="48204" name="Malfurion's Headguard of Triumph" rarity="4" url="i=48204">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="258"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="71"/>
+        </item>
+        <item icon="inv_helmet_145b" id="48201" name="Runetotem's Headguard of Triumph" rarity="4" url="i=48201">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="258"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="71"/>
+        </item>
+        <item icon="inv_helmet_148" id="50826" name="Lasherweave Headguard" rarity="4" url="i=50826">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="251"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="70"/>
+        </item>
+        <item icon="inv_helmet_126" id="41679" name="Relentless Gladiator's Dragonhide Helm" rarity="4" url="i=41679">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="251"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="69"/>
+        </item>
+        <item icon="inv_helmet_139" id="48211" name="Malfurion's Headguard of Triumph" rarity="4" url="i=48211">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="245"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="66"/>
+        </item>
+        <item icon="inv_helmet_145b" id="48194" name="Runetotem's Headguard of Triumph" rarity="4" url="i=48194">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="245"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="66"/>
+        </item>
+        <item icon="inv_helmet_149" id="51866" name="Discarded Bag of Entrails" rarity="4" url="i=51866">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="264"/>
+          <filter areaId="4812" areaKey="icecrowncitadel10" areaName="Icecrown Citadel (10)" creatureId="36678" creatureName="Professor Putricide" difficulty="h" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="65"/>
+        </item>
+        <item icon="inv_helmet_126" id="41678" name="Furious Gladiator's Dragonhide Helm" rarity="4" url="i=41678">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="232"/>
+          <filter name="source" value="sourceType.pvpReward"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="62"/>
+        </item>
+        <item icon="inv_helmet_145b" id="48188" name="Runetotem's Headguard of Conquest" rarity="4" url="i=48188">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="232"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="62"/>
+        </item>
+        <item icon="inv_helmet_139" id="48214" name="Malfurion's Headguard of Conquest" rarity="4" url="i=48214">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="232"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="62"/>
+        </item>
+        <item icon="inv_helmet_149" id="51013" name="Discarded Bag of Entrails" rarity="4" url="i=51013">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="251"/>
+          <filter areaId="4812" areaKey="icecrowncitadel10" areaName="Icecrown Citadel (10)" creatureId="36678" creatureName="Professor Putricide" difficulty="n" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="61"/>
+        </item>
+        <item icon="inv_helmet_145a" id="47688" name="Mask of Lethal Intent" rarity="4" url="i=47688">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="245"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="61"/>
+        </item>
+        <item icon="inv_helmet_139" id="47689" name="Hood of Lethal Intent" rarity="4" url="i=47689">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="245"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="61"/>
+        </item>
+        <item icon="inv_helmet_09" id="49471" name="Stormrage Coverlet" rarity="4" url="i=49471">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="245"/>
+          <filter areaId="2159" areaKey="onyxiaslair" areaName="Onyxia's Lair" creatureId="10184" creatureName="Onyxia" difficulty="h" dropRate="2" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="60"/>
+        </item>
+        <item icon="inv_jewelry_necklace_11" id="46161" name="Conqueror's Nightsong Headguard" rarity="4" url="i=46161">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="226"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="59"/>
+        </item>
+        <item icon="inv_gizmo_newgoggles" id="45993" name="Mimiron's Flight Goggles" rarity="4" url="i=45993">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="226"/>
+          <filter name="source" value="sourceType.gameObjectDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="57"/>
+        </item>
+        <item icon="inv_helmet_153" id="50206" name="Frayed Scoundrel's Cap" rarity="4" url="i=50206">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="232"/>
+          <filter areaId="4809" areaKey="forgeofsouls" areaName="Forge of Souls" creatureId="36502" creatureName="Devourer of Souls" difficulty="h" dropRate="2" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="57"/>
+        </item>
+        <item icon="inv_helmet_09" id="49328" name="Stormrage Helm" rarity="4" url="i=49328">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="232"/>
+          <filter areaId="2159" areaKey="onyxiaslair" areaName="Onyxia's Lair" creatureId="10184" creatureName="Onyxia" difficulty="n" dropRate="2" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="57"/>
+        </item>
+        <item icon="inv_jewelry_necklace_11" id="45356" name="Valorous Nightsong Headguard" rarity="4" url="i=45356">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="219"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="57"/>
+        </item>
+        <item icon="inv_helmet_15" id="46262" name="Nightsong Headguard" rarity="4" url="i=46262">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="219"/>
+          <filter name="source" value="sourceType.none"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="57"/>
+        </item>
+        <item icon="inv_helmet_100.tga" id="45893" name="Guise of the Midgard Serpent" rarity="4" url="i=45893">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="219"/>
+          <filter name="source" value="sourceType.gameObjectDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="56"/>
+        </item>
+        <item icon="inv_helmet_141" id="47529" name="Mask of Distant Memory" rarity="4" url="i=47529">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="219"/>
+          <filter areaId="4723" areaKey="trialofthechampion" areaName="Trial of the Champion" creatureId="35451" creatureName="The Black Knight" difficulty="h" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="56"/>
+        </item>
+        <item icon="inv_helmet_141" id="41677" name="Deadly Gladiator's Dragonhide Helm" rarity="4" url="i=41677">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="213"/>
+          <filter name="source" value="sourceType.pvpReward"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="56"/>
+        </item>
+        <item icon="inv_helmet_108" id="40296" name="Cover of Silence" rarity="4" url="i=40296">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="213"/>
+          <filter areaId="3456" areaKey="naxxramas" areaName="Naxxramas" creatureId="15928" creatureName="Thaddius" difficulty="h" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="0"/>
+
+          <filter name="normalSockets" value="0"/>
+          <filter name="relevance" value="55"/>
+        </item>
+        <item icon="inv_helmet_100.tga" id="45523" name="Garona's Guise" rarity="4" url="i=45523">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="226"/>
+          <filter areaId="4273" areaKey="ulduar" areaName="Ulduar" creatureId="33288" creatureName="Yogg-Saron" difficulty="h" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="54"/>
+        </item>
+        <item icon="inv_helmet_15" id="40473" name="Valorous Dreamwalker Headguard" rarity="4" url="i=40473">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="213"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="53"/>
+        </item>
+        <item icon="inv_helmet_108" id="40329" name="Hood of the Exodus" rarity="4" url="i=40329">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="213"/>
+          <filter areaId="3456" areaKey="naxxramas" areaName="Naxxramas" creatureId="16060" creatureName="Gothik the Harvester" difficulty="h" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="52"/>
+        </item>
+        <item icon="inv_helmet_141" id="41676" name="Hateful Gladiator's Dragonhide Helm" rarity="4" url="i=41676">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="200"/>
+          <filter name="source" value="sourceType.pvpReward"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="52"/>
+        </item>
+        <item icon="inv_helmet_15" id="39553" name="Heroes' Dreamwalker Headguard" rarity="4" url="i=39553">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="200"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="50"/>
+        </item>
+        <item icon="inv_helmet_15" id="43753" name="Dreamwalker Headguard" rarity="4" url="i=43753">
+          <filter name="requiredLevel" value="80"/>
+          <filter name="type" value="Leather"/>
+          <filter name="itemLevel" value="200"/>
+          <filter name="source" value="sourceType.none"/>
+          <filter name="metaSockets" value="1"/>
+
+          <filter name="normalSockets" value="1"/>
+          <filter name="relevance" value="50"/>
+        </item>
+      </items>
+    </searchResults>
+  </armorySearch>
+</page>

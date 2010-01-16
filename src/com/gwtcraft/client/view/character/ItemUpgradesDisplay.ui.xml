@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:util="urn:import:com.gwtcraft.client.view.util">
+
+	<ui:style field="common" src="../common.css"/>
+	
+	<ui:style>
+		.divider {
+			background-color: gray;
+			color: white;
+		}
+	</ui:style>
+
+	<g:FlowPanel>
+		<g:FlowPanel styleName="{common.underline}">
+			<g:Label styleName="{common.defaultFont}" ui:field="name"/>
+			<g:Label styleName="{common.defaultFont} {common.realm}" ui:field="realm"/>
+		</g:FlowPanel>
+		<g:Label styleName="{style.divider}">Current item</g:Label>
+		<g:FlowPanel ui:field="currentItemWrapper"></g:FlowPanel>
+		<g:Label styleName="{style.divider}">Upgrades</g:Label>
+		<g:FlowPanel ui:field="itemsWrapper">
+			<util:Spinner/>
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

@@ -10,7 +10,6 @@ import org.junit.Test;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
-import com.gwtcraft.client.model.Statistic;
 
 public class ArmoryParserTest {
 	@Test
@@ -69,8 +68,6 @@ public class ArmoryParserTest {
 		Assert.assertEquals("Duskstalker Shoulderpads", item.getName());
 		Assert.assertEquals("inv_shoulder_89", item.getIcon());
 		
-		printStats(item.getStatistics());
-		
 		Assert.assertEquals(467, item.getArmor().intValue());
 		Assert.assertEquals(1, item.getYellowSockets().intValue());
 		
@@ -122,9 +119,15 @@ public class ArmoryParserTest {
 		Assert.assertEquals(1, item.getRedSockets().intValue());
 	}
 	
-	private void printStats(List<Statistic> stats) {
-		for (Statistic stat : stats) {
-			System.out.println(stat);
-		}
-	} 
+	@Test
+	public void shouldParseItemUpgrades() {
+		InputStream xmlStream = getClass().getResourceAsStream("upgrade-items.xml");
+		Assert.assertNotNull(xmlStream);
+		
+		ArmoryParser parser = new ArmoryParser();
+		List<Integer> items = parser.parseUpgrades(xmlStream);
+		
+		Assert.assertEquals(34, items.size());
+		Assert.assertEquals(51143, items.get(2).intValue());
+	}
 }

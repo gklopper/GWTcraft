@@ -40,7 +40,12 @@ public class CharacterItemsPresenter implements Presenter {
 				display.getItemsWrapper().clear();
 				for (Item item : result) {
 					CurrentItemDisplay view = new CurrentItemDisplay(item.getId(), item.getSlot());
-					new CurrentItemPresenter(armoryService, eventBus, view).go(display.getItemsWrapper());
+					new CurrentItemPresenter(armoryService, 
+											eventBus, 
+											view, 
+											display.getNameField().getText(), 
+											display.getRealmField().getText(),
+											true).go(display.getItemsWrapper());
 				}
 				
 				if (result.isEmpty()) {

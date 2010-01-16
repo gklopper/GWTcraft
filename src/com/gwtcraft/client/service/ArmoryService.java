@@ -16,4 +16,5 @@ public interface ArmoryService extends RemoteService {
 	List<ArmoryCharacter> search(String searchTerm);
 	List<Item> loadItemsFor(String name, String realm);
 	ItemDetail loadItem(Integer id);
+	List<Integer> loadUpgradesFor(String name, String realm, Integer itemId);
 }

@@ -128,4 +128,17 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 			return o1.getSearchRank().compareTo(o2.getSearchRank()) * -1;
 		}
 	}
+
+	@Override
+	public List<Integer> loadUpgradesFor(String playerName, String playerRealm, Integer itemId) {
+		try {
+			String requestUrl = String.format("http://eu.wowarmory.com/search.xml?searchType=items&pr=%s&pn=%s&pi=%s", playerRealm, playerName, String.valueOf(itemId));
+			URL url = new URL(requestUrl);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestProperty("User-Agent", USER_AGENT);
+			return new ArmoryParser().parseUpgrades(connection.getInputStream());
+		} catch (IOException ioe) {
+			throw new GwtCraftException(ioe);
+		}
+	}
 }

@@ -11,4 +11,5 @@ public interface ArmoryServiceAsync {
 	void search(String input, AsyncCallback<List<ArmoryCharacter>> callback);
 	void loadItemsFor(String name, String realm, AsyncCallback<List<Item>> callback);
 	void loadItem(Integer id, AsyncCallback<ItemDetail> callback);
+	void loadUpgradesFor(String name, String realm, Integer itemId, AsyncCallback<List<Integer>> callback);
 }

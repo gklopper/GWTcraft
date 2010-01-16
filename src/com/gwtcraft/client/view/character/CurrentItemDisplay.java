@@ -1,6 +1,7 @@
 package com.gwtcraft.client.view.character;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -17,6 +18,9 @@ public class CurrentItemDisplay extends Composite implements Display{
 
 	interface CurrentItemDisplayUiBinder extends UiBinder<Widget, CurrentItemDisplay> {
 	}
+	
+	@UiField
+	HasClickHandlers selectButton;
 
 	@UiField
 	HasValue<String> slotId;
@@ -83,5 +87,10 @@ public class CurrentItemDisplay extends Composite implements Display{
 	@Override
 	public HasWidgets getSpells() {
 		return spells;
+	}
+
+	@Override
+	public HasClickHandlers getSelectButton() {
+		return selectButton;
 	}
 }

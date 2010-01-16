@@ -151,4 +151,15 @@ public class ArmoryParser {
 	private Integer intValueOrZero(Element element) {
 		return element == null ? 0 : element.value().toInteger();
 	}
+
+	public List<Integer> parseUpgrades(InputStream xmlStream) {
+		Element page = new ReallySimpleXmlImpl().parse(xmlStream);
+		
+		List<Element> items = page.element("armorySearch").element("searchResults").element("items").elements("item");
+		List<Integer> itemIds = new ArrayList<Integer>();
+		for (Element item : items) {
+			itemIds.add(item.attribute("id").toInteger());
+		}
+		return itemIds;
+	}
 }
