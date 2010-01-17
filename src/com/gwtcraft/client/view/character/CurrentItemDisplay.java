@@ -42,6 +42,15 @@ public class CurrentItemDisplay extends Composite implements Display{
 	
 	@UiField
 	HasText name;
+	
+	@UiField
+	HasText source;
+	
+	@UiField
+	HasText creature;
+	
+	@UiField
+	HasText area;
 
 	public CurrentItemDisplay(Integer itemId, Integer slotId) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -92,5 +101,20 @@ public class CurrentItemDisplay extends Composite implements Display{
 	@Override
 	public HasClickHandlers getSelectButton() {
 		return selectButton;
+	}
+
+	@Override
+	public HasText getArea() {
+		return area;
+	}
+
+	@Override
+	public HasText getCreature() {
+		return creature;
+	}
+
+	@Override
+	public HasText getSource() {
+		return source;
 	}
 }

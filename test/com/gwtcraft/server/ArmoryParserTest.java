@@ -70,7 +70,7 @@ public class ArmoryParserTest {
 		
 		Assert.assertEquals(467, item.getArmor().intValue());
 		Assert.assertEquals(1, item.getYellowSockets().intValue());
-		
+		Assert.assertEquals("Vendor", item.getSource());
 		
 	}
 	
@@ -117,6 +117,8 @@ public class ArmoryParserTest {
 		
 		Assert.assertEquals(1, item.getMetaSockets().intValue());
 		Assert.assertEquals(1, item.getRedSockets().intValue());
+		Assert.assertEquals("Onyxia", item.getCreatureName());
+		Assert.assertEquals("Onyxia's Lair", item.getAreaName());
 	}
 	
 	@Test

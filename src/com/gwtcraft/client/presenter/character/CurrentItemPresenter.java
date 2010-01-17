@@ -33,6 +33,9 @@ public class CurrentItemPresenter implements Presenter {
 		HasValue<String> getIdField();
 		HasValue<String> getSlotField();
 		HasText getName();
+		HasText getSource();
+		HasText getCreature();
+		HasText getArea();
 		HasWidgets getStatsOne();
 		HasWidgets getStatsTwo();
 		HasWidgets getSpells();
@@ -62,6 +65,14 @@ public class CurrentItemPresenter implements Presenter {
 			@Override
 			public void onSuccess(final ItemDetail item) {
 				display.getName().setText(item.getName());
+				
+				if (item.getCreatureName() == null) {
+					display.getSource().setText(item.getSource());
+				} else {
+					display.getCreature().setText(item.getCreatureName() + " - ");
+					display.getArea().setText(item.getAreaName());
+				}
+				
 				display.getIconWrapper().clear();
 				
 				//TODO check T&Cs for using these images directly

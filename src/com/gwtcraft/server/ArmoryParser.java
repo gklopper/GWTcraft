@@ -18,8 +18,8 @@ import com.rsx.impl.ReallySimpleXmlImpl;
 public class ArmoryParser {
 	
 	private static final Logger LOGGER = Logger.getLogger(ArmoryParser.class.getName());
+
 	private static final Map<String, String> STAT_NAMES = new HashMap<String, String>();
-	
 	static {
 		STAT_NAMES.put("bonusAgility", "Agi");
 		STAT_NAMES.put("bonusStamina", "Stam");
@@ -37,6 +37,19 @@ public class ArmoryParser {
 		STAT_NAMES.put("bonusHitRating", "Hit");
 		STAT_NAMES.put("bonusHasteRating", "Haste");
 		STAT_NAMES.put("bonusBlockValue", "Block");
+	}
+	
+	private static final Map<String, String> SOURCE_NAMES = new HashMap<String, String>();
+	static {
+		SOURCE_NAMES.put("sourceType.creatureDrop", "Drop");
+		SOURCE_NAMES.put("sourceType.vendor", "Vendor");
+		SOURCE_NAMES.put("sourceType.pvpReward", "PvP");
+		SOURCE_NAMES.put("sourceType.gameObjectDrop", "Chest");
+		SOURCE_NAMES.put("sourceType.createdBySpell", "Created");
+		SOURCE_NAMES.put("sourceType.worldDrop", "World drop");
+		SOURCE_NAMES.put("sourceType.factionReward", "Faction reward");
+		SOURCE_NAMES.put("sourceType.none", "?");
+		
 	}
 
 	public List<ArmoryCharacter> parseCharacterSearch(InputStream xmlStream) {
@@ -104,6 +117,23 @@ public class ArmoryParser {
 					statistic.setValue(stat.value().toInteger());
 					item.getStatistics().add(statistic);
 				}
+			}
+		}
+		
+		//source
+		Element source = itemElement.element("itemSource");
+		if (source != null) {
+			String sourceName = SOURCE_NAMES.get(source.attribute("value").toString());
+			if (sourceName == null) {
+				LOGGER.log(Level.INFO, "Unknown source : " + source.attribute("value").toString());
+			} else {
+				item.setSource(sourceName);
+			}
+			if (source.attribute("creatureName") != null) {
+				item.setCreatureName(source.attribute("creatureName").toString());
+			}
+			if (source.attribute("areaName") != null) {
+				item.setAreaName(source.attribute("areaName").toString());
 			}
 		}
 		

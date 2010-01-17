@@ -15,9 +15,11 @@ public class ItemDetail extends Item {
 	private Integer metaSockets = 0;
 	private List<String> use = new ArrayList<String>();
 	private List<String> equip = new ArrayList<String>();
-	private List<Statistic> statistics = new ArrayList<Statistic>(); 
+	private List<Statistic> statistics = new ArrayList<Statistic>();
+	private String source;
+	private String areaName;
+	private String creatureName;
 	
-
 	public List<Statistic> getStatistics() {
 		return statistics;
 	}
@@ -98,5 +100,29 @@ public class ItemDetail extends Item {
 
 	public void setRedSockets(Integer redSockets) {
 		this.redSockets = redSockets;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getAreaName() {
+		return areaName;
+	}
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
+	}
+
+	public String getCreatureName() {
+		return creatureName;
+	}
+
+	public void setCreatureName(String creatureName) {
+		this.creatureName = creatureName;
 	}
 }

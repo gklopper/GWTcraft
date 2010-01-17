@@ -9,12 +9,21 @@
 		.details {
 			padding-left: 4px;
 		}
+		.location {
+			display: inline;
+		}
 	</ui:style>
 	<g:FocusPanel ui:field="selectButton">
 		<g:FlowPanel styleName="{common.underline}">
 	 		<util:HiddenWithValue ui:field="slotId"/>
 			<util:HiddenWithValue ui:field="itemId"/>
 			<g:Label styleName="{common.defaultFont}" ui:field="name"/>
+			<g:FlowPanel>
+				<g:Label styleName="{style.location}" ui:field="source"/>
+				<g:Label styleName="{style.location}" ui:field="creature"/>
+				<g:Label styleName="{style.location}" ui:field="area"/>
+			</g:FlowPanel>
+			
 			<g:HorizontalPanel>
 				<g:FlowPanel ui:field="iconWrapper">
 					<g:HTML><img src="/images/loader.gif" width="15px" height="15px"/></g:HTML>				
