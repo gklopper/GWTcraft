@@ -26,6 +26,7 @@ public class CurrentItemPresenter implements Presenter {
 	private final String characterName;
 	private final String realmName;
 	private final boolean selectable;
+	private final Integer itemId;
 	
 
 	public interface Display {
@@ -48,17 +49,18 @@ public class CurrentItemPresenter implements Presenter {
 								Display view, 
 								String characterName, 
 								String realmName,
+								Integer itemId,
 								boolean selectable) {
 		this.armoryService = armoryService;
 		this.eventBus = eventBus;
 		this.display = view;
 		this.characterName = characterName;
 		this.realmName = realmName;
+		this.itemId = itemId;
 		this.selectable = selectable;
 	}
 
 	private void bind() {
-		Integer itemId = Integer.parseInt(display.getIdField().getValue());
 		
 		armoryService.loadItem(itemId, new AsyncCallback<ItemDetail>() {
 			

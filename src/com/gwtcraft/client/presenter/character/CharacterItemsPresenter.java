@@ -82,12 +82,13 @@ public class CharacterItemsPresenter implements Presenter {
 			if (itemIterator.hasNext()) {
 				Item item = itemIterator.next();
 
-				CurrentItemDisplay view = new CurrentItemDisplay(item.getId(), item.getSlot());
+				CurrentItemDisplay view = new CurrentItemDisplay();
 				new CurrentItemPresenter(armoryService,
 										eventBus, 
 										view, 
 										display.getNameField().getText(), 
 										display.getRealmField().getText(),
+										item.getId(),
 										true).go(display.getItemsWrapper());
 				return true;
 
