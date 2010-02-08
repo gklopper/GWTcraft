@@ -1,4 +1,7 @@
-package com.gwtcraft.client.presenter.character;
+package com.gwtcraft.client.places.upgrade;
+
+import java.util.Iterator;
+import java.util.List;
 
 import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.IncrementalCommand;
@@ -8,12 +11,10 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.ItemDetail;
-import com.gwtcraft.client.presenter.Presenter;
+import com.gwtcraft.client.places.Presenter;
+import com.gwtcraft.client.places.character.CurrentItemDisplay;
+import com.gwtcraft.client.places.character.CurrentItemPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
-import com.gwtcraft.client.view.character.CurrentItemDisplay;
-
-import java.util.Iterator;
-import java.util.List;
 
 public class ItemUpgradesPresenter implements Presenter {
 

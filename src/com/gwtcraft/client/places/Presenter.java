@@ -1,4 +1,4 @@
-package com.gwtcraft.client.presenter;
+package com.gwtcraft.client.places;
 
 import com.google.gwt.user.client.ui.HasWidgets;
 

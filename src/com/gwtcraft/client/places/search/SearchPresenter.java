@@ -1,4 +1,4 @@
-package com.gwtcraft.client.presenter.search;
+package com.gwtcraft.client.places.search;
 
 import java.util.Iterator;
 import java.util.List;
@@ -16,10 +16,9 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.event.SearchInitiatedEvent;
 import com.gwtcraft.client.model.ArmoryCharacter;
-import com.gwtcraft.client.presenter.Presenter;
+import com.gwtcraft.client.places.Presenter;
+import com.gwtcraft.client.places.util.Spinner;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
-import com.gwtcraft.client.view.search.SearchCharacterDisplay;
-import com.gwtcraft.client.view.util.Spinner;
 
 public class SearchPresenter implements Presenter {
 

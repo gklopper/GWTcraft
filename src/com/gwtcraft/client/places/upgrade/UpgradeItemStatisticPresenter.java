@@ -1,10 +1,10 @@
-package com.gwtcraft.client.presenter.character;
+package com.gwtcraft.client.places.upgrade;
 
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.Statistic;
-import com.gwtcraft.client.presenter.Presenter;
+import com.gwtcraft.client.places.Presenter;
 
 public class UpgradeItemStatisticPresenter implements Presenter {
 

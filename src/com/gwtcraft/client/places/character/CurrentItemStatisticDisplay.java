@@ -1,4 +1,4 @@
-package com.gwtcraft.client.view.character;
+package com.gwtcraft.client.places.character;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -6,7 +6,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.presenter.character.CurrentItemStatisticPresenter.Display;
+import com.gwtcraft.client.places.character.CurrentItemStatisticPresenter.Display;
 
 public class CurrentItemStatisticDisplay extends Composite implements Display {
 

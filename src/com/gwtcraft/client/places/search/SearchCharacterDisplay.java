@@ -1,4 +1,4 @@
-package com.gwtcraft.client.view.search;
+package com.gwtcraft.client.places.search;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -10,9 +10,8 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.presenter.search.SearchCharacterPresenter.Display;
 
-public class SearchCharacterDisplay extends Composite implements Display {
+public class SearchCharacterDisplay extends Composite implements SearchCharacterPresenter.Display {
 
 	private static SearchCharacterUiBinder uiBinder = GWT
 			.create(SearchCharacterUiBinder.class);

@@ -1,7 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
-	xmlns:util="urn:import:com.gwtcraft.client.view.util">
+	xmlns:util="urn:import:com.gwtcraft.client.places.util">
 
 	<ui:style field="common" src="../common.css"/>
 

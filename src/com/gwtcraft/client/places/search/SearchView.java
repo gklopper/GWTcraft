@@ -1,4 +1,4 @@
-package com.gwtcraft.client.view.search;
+package com.gwtcraft.client.places.search;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
@@ -8,9 +8,8 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.presenter.search.SearchPresenter.Display;
 
-public class SearchView extends Composite implements Display {
+public class SearchView extends Composite implements SearchPresenter.Display {
 
 	private static SearchBoxUiBinder uiBinder = GWT
 			.create(SearchBoxUiBinder.class);

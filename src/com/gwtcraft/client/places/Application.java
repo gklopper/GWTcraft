@@ -1,4 +1,4 @@
-package com.gwtcraft.client.presenter;
+package com.gwtcraft.client.places;
 
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
@@ -12,13 +12,13 @@ import com.gwtcraft.client.event.ItemSelectedEvent;
 import com.gwtcraft.client.event.ItemSelectedEventHandler;
 import com.gwtcraft.client.event.SearchInitiatedEvent;
 import com.gwtcraft.client.event.SearchInitiatedEventHandler;
-import com.gwtcraft.client.presenter.character.CharacterItemsPresenter;
-import com.gwtcraft.client.presenter.character.ItemUpgradesPresenter;
-import com.gwtcraft.client.presenter.search.SearchPresenter;
+import com.gwtcraft.client.places.character.CharacterItemsDisplay;
+import com.gwtcraft.client.places.character.CharacterItemsPresenter;
+import com.gwtcraft.client.places.search.SearchPresenter;
+import com.gwtcraft.client.places.search.SearchView;
+import com.gwtcraft.client.places.upgrade.ItemUpgradesDisplay;
+import com.gwtcraft.client.places.upgrade.ItemUpgradesPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
-import com.gwtcraft.client.view.character.CharacterItemsDisplay;
-import com.gwtcraft.client.view.character.ItemUpgradesDisplay;
-import com.gwtcraft.client.view.search.SearchView;
 
 public class Application implements Presenter, ValueChangeHandler<String> {
 

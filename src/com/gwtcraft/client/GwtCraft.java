@@ -6,7 +6,7 @@ import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.gwtcraft.client.presenter.Application;
+import com.gwtcraft.client.places.Application;
 import com.gwtcraft.client.service.ArmoryService;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 

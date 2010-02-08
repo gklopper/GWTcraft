@@ -1,4 +1,4 @@
-package com.gwtcraft.client.view.character;
+package com.gwtcraft.client.places.upgrade;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
@@ -8,7 +8,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.presenter.character.UpgradeItemPresenter.Display;
+import com.gwtcraft.client.places.upgrade.UpgradeItemPresenter.Display;
 
 public class UpgradeItemDisplay extends Composite implements Display{
 

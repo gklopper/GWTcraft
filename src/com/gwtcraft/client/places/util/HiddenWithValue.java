@@ -1,4 +1,4 @@
-package com.gwtcraft.client.view.util;
+package com.gwtcraft.client.places.util;
 
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;

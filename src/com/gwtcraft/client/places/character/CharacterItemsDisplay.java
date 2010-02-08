@@ -1,4 +1,4 @@
-package com.gwtcraft.client.view.character;
+package com.gwtcraft.client.places.character;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -7,21 +7,19 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.presenter.character.ItemUpgradesPresenter.Display;
+import com.gwtcraft.client.places.character.CharacterItemsPresenter.Display;
 
-public class ItemUpgradesDisplay extends Composite implements Display {
+public class CharacterItemsDisplay extends Composite implements Display {
 
-	private static CharacterItemsDisplayUiBinder uiBinder = GWT.create(CharacterItemsDisplayUiBinder.class);
+	private static CharacterItemsDisplayUiBinder uiBinder = GWT
+			.create(CharacterItemsDisplayUiBinder.class);
 
 	interface CharacterItemsDisplayUiBinder extends
-			UiBinder<Widget, ItemUpgradesDisplay> {
+			UiBinder<Widget, CharacterItemsDisplay> {
 	}
 
 	@UiField
 	HasWidgets itemsWrapper;
-	
-	@UiField
-	HasWidgets currentItemWrapper;
 	
 	@UiField
 	HasText name;
@@ -29,8 +27,10 @@ public class ItemUpgradesDisplay extends Composite implements Display {
 	@UiField
 	HasText realm;
 
-	public ItemUpgradesDisplay() {
+	public CharacterItemsDisplay(String name, String realm) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.name.setText(name);
+		this.realm.setText(realm);
 	}
 
 	@Override
@@ -51,10 +51,5 @@ public class ItemUpgradesDisplay extends Composite implements Display {
 	@Override
 	public HasText getRealmField() {
 		return realm;
-	}
-
-	@Override
-	public HasWidgets getCurrentItemWrapper() {
-		return currentItemWrapper;
 	}
 }

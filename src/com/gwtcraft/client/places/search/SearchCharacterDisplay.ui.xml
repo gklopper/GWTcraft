@@ -4,7 +4,7 @@
 	
 	<ui:style field="common" src="../common.css"/>
 
-	<ui:style type="com.gwtcraft.client.view.search.SearchCharacterDisplay.Style">	
+	<ui:style type="com.gwtcraft.client.places.search.SearchCharacterDisplay.Style">	
 		.selected {
 			background-color: #C0C0C0;
 		}
