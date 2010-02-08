@@ -1,9 +1,12 @@
 package com.gwtcraft.server;
 
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -68,6 +71,16 @@ public class ArmoryParser {
 			character.setName(characterElement.attribute("name").toString());
 			character.setRealm(characterElement.attribute("realm").toString());
 			character.setSearchRank(characterElement.attribute("searchRank").toInteger());
+			character.setLevel(characterElement.attribute("level").toInteger());
+			
+			String loginDateString = characterElement.attribute("lastLoginDate").toString();
+			loginDateString = loginDateString.substring(0, 10);
+			try {
+				character.setLastLogin(new SimpleDateFormat("yyyy-MM-dd", Locale.UK).parse(loginDateString));
+			} catch (ParseException e) {
+				throw new RuntimeException("Invalid Login Date: " + character.getName() + " : " + character.getRealm() + " : " + characterElement.attribute("lastLoginDate").toString());
+			}
+			
 		}
 		return result;
 	}

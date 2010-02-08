@@ -1,7 +1,9 @@
 package com.gwtcraft.server;
 
 import java.io.InputStream;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import junit.framework.Assert;
 
@@ -26,6 +28,16 @@ public class ArmoryParserTest {
 		Assert.assertEquals("Eonar", takbok.getRealm());
 		Assert.assertEquals("Takbok", takbok.getName());
 		Assert.assertEquals(4, takbok.getSearchRank().intValue());
+		Assert.assertEquals(80, takbok.getLevel().intValue());
+		
+		//2009-12-20 08:32:09.0
+		
+		Calendar cal = Calendar.getInstance(Locale.UK);
+		cal.clear();
+		cal.set(Calendar.YEAR, 2009);
+		cal.set(Calendar.MONTH, 11);
+		cal.set(Calendar.DAY_OF_MONTH, 20);
+		Assert.assertEquals(cal.getTime(), takbok.getLastLogin());
 	}
 	
 	@Test

@@ -4,11 +4,17 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -76,7 +82,29 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 				connection.setRequestProperty("User-Agent", USER_AGENT);
 				characters = new ArmoryParser().parseCharacterSearch(connection
 						.getInputStream());
+				
+				Calendar cal = Calendar.getInstance(Locale.UK);
+				cal.set(Calendar.HOUR_OF_DAY, 0);
+				cal.set(Calendar.MINUTE, 0);
+				cal.set(Calendar.SECOND, 0);
+				cal.set(Calendar.MILLISECOND, 0);
+				cal.add(Calendar.DAY_OF_YEAR, -60);
+				Date sixtyDaysAgo = cal.getTime();
+				
+				Set<ArmoryCharacter> toRemove = new HashSet<ArmoryCharacter>();
+				
+				for (ArmoryCharacter character : characters) {
+					if (character.getLastLogin().before(sixtyDaysAgo)) {
+						toRemove.add(character);
+					} else if (character.getLevel() < 70) {
+						toRemove.add(character);
+					}
+				}
+				
+				characters.removeAll(toRemove);
+			
 				Collections.sort(characters, new SearchRankComparator());
+				
 				cache30min.put(cacheKey, characters);
 			}
 
