@@ -1,5 +1,7 @@
 package com.gwtcraft.client.presenter.character;
 
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.IncrementalCommand;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -9,6 +11,8 @@ import com.gwtcraft.client.model.ItemDetail;
 import com.gwtcraft.client.presenter.Presenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 import com.gwtcraft.client.view.character.CurrentItemDisplay;
+
+import java.util.Iterator;
 import java.util.List;
 
 public class ItemUpgradesPresenter implements Presenter {
@@ -50,8 +54,8 @@ public class ItemUpgradesPresenter implements Presenter {
 
 			@Override
 			public void onSuccess(ItemDetail result) {
-				CurrentItemDisplay view = new CurrentItemDisplay(result.getId(), result.getSlot());
-				new CurrentItemPresenter(armoryService, null, view, name, realm, false).go(display.getCurrentItemWrapper());
+				CurrentItemDisplay view = new CurrentItemDisplay();
+				new CurrentItemPresenter(armoryService, null, view, name, realm, result.getId(), false).go(display.getCurrentItemWrapper());
 				
 				armoryService.loadUpgradesFor(name, realm, itemId, new AsyncCallback<List<Integer>>() {
 
@@ -62,46 +66,36 @@ public class ItemUpgradesPresenter implements Presenter {
 					}
 
 					@Override
-					public void onSuccess(List<Integer> items) {
+					public void onSuccess(final List<Integer> items) {
 						display.getItemsWrapper().clear();
-						for (Integer itemId : items) {
-							CurrentItemDisplay view = new CurrentItemDisplay(itemId, 0);
-							new CurrentItemPresenter(armoryService, null, view, name, realm, false).go(display.getItemsWrapper());
-						}
+						DeferredCommand.addCommand(new DisplayItemCommand(items));
 					}
 				});
 				
 			}
 		});
-		
-//		armoryService.loadItemsFor(display.getNameField().getText(), display.getRealmField().getText(), new AsyncCallback<List<Item>>() {
-//			
-//			@Override
-//			public void onSuccess(List<Item> result) {
-//				display.getItemsWrapper().clear();
-//				for (Item item : result) {
-//					CurrentItemDisplay view = new CurrentItemDisplay(item.getId(), item.getSlot());
-//					new CurrentItemPresenter(armoryService, eventBus, view, display.getNameField().getText(), display.getRealmField().getText()).go(display.getItemsWrapper());
-//				}
-//				
-//				if (result.isEmpty()) {
-//					display.getItemsWrapper().add(new Label("No items were found for this character."));
-//					display.getItemsWrapper().add(new Label("This usually happens when characters have been inactive for a long time."));
-//				}
-//			}
-//			
-//			@Override
-//			public void onFailure(Throwable caught) {
-//				display.getItemsWrapper().clear();
-//				//TODO something prettier than this
-//				display.getItemsWrapper().add(new Label(caught.getMessage()));
-//			}
-//		});
 	}
 	
 	@Override
 	public void go(HasWidgets container) {
 		bind();
 		container.add(display.asWidget());
+	}
+	
+	private final class DisplayItemCommand implements IncrementalCommand {
+		Iterator<Integer> itemsIterator;
+
+		private DisplayItemCommand(List<Integer> items) {
+			itemsIterator = items.iterator();
+		}
+
+		public boolean execute() {
+			if (itemsIterator.hasNext()) {
+				final Integer itemId = itemsIterator.next();
+				CurrentItemDisplay view = new CurrentItemDisplay();
+				new CurrentItemPresenter(armoryService, null, view, name, realm, itemId, false).go(display.getItemsWrapper());
+			}
+			return itemsIterator.hasNext();
+		}
 	}
 }

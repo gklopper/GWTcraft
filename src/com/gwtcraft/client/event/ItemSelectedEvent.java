@@ -1,8 +1,6 @@
 package com.gwtcraft.client.event;
 
 import com.google.gwt.event.shared.GwtEvent;
-import com.gwtcraft.client.model.ArmoryCharacter;
-import com.gwtcraft.client.model.ItemDetail;
 
 public class ItemSelectedEvent extends GwtEvent<ItemSelectedEventHandler> {
 

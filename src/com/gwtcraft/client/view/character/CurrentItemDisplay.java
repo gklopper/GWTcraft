@@ -52,10 +52,8 @@ public class CurrentItemDisplay extends Composite implements Display{
 	@UiField
 	HasText area;
 
-	public CurrentItemDisplay(Integer itemId, Integer slotId) {
+	public CurrentItemDisplay() {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.slotId.setValue(String.valueOf(slotId));
-		this.itemId.setValue(String.valueOf(itemId));
 	}
 
 	@Override

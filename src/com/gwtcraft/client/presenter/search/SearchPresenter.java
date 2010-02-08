@@ -1,11 +1,14 @@
 package com.gwtcraft.client.presenter.search;
 
+import java.util.Iterator;
 import java.util.List;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.IncrementalCommand;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -73,13 +76,9 @@ public class SearchPresenter implements Presenter {
 		armoryService.search(searchTerm, new AsyncCallback<List<ArmoryCharacter>>() {
 			
 			@Override
-			public void onSuccess(List<ArmoryCharacter> characters) {
+			public void onSuccess(final List<ArmoryCharacter> characters) {
 				display.getResultArea().clear();
-				for (ArmoryCharacter character : characters) {
-					SearchCharacterDisplay characterView = new SearchCharacterDisplay(character.getName(), character.getRealm());
-					new SearchCharacterPresenter(eventBus, characterView).go(display.getResultArea());
-				}
-				
+				DeferredCommand.addCommand(new DisplayCharacterCommand(characters));
 				if (characters.isEmpty()) {
 					display.getResultArea().add(new Label("Search returned no results"));
 				}
@@ -95,4 +94,22 @@ public class SearchPresenter implements Presenter {
 		});
 	}
 
+	private final class DisplayCharacterCommand implements IncrementalCommand {
+		final Iterator<ArmoryCharacter> characterIterator;
+
+		private DisplayCharacterCommand(List<ArmoryCharacter> characters) {
+			characterIterator = characters.iterator();
+		}
+
+		@Override
+		public boolean execute() {
+			if (characterIterator.hasNext()) {
+				ArmoryCharacter character = characterIterator.next();
+				SearchCharacterDisplay characterView = new SearchCharacterDisplay(character.getName(), character.getRealm());
+				new SearchCharacterPresenter(eventBus, characterView).go(display.getResultArea());
+				return true;
+			}
+			return false;
+		}
+	}
 }
