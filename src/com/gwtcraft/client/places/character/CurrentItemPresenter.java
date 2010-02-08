@@ -79,18 +79,11 @@ public class CurrentItemPresenter implements Presenter {
 				//TODO check T&Cs for using these images directly
 				display.getIconWrapper().add(new Image("http://eu.wowarmory.com/wow-icons/_images/51x51/" + item.getIcon() + ".jpg"));
 				
-				
-				if (item.getArmor() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Armor", item.getArmor());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
 				int count = 0;
 				for (Statistic stat : item.getStatistics()) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay(stat.getName(), stat.getValue());
 					CurrentItemStatisticPresenter presenter = new CurrentItemStatisticPresenter(view);
-					if (count++ < 3) {
-						//3 + armor = 4
+					if (count++ < 4) {
 						presenter.go(display.getStatsOne());
 					} else {
 						presenter.go(display.getStatsTwo());
@@ -98,26 +91,6 @@ public class CurrentItemPresenter implements Presenter {
 				}
 				
 				//TODO MP5
-				
-				if (item.getMetaSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Meta socket", item.getMetaSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
-				if (item.getRedSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Red socket", item.getRedSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
-				if (item.getYellowSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Yellow socket", item.getYellowSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
-				if (item.getBlueSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Blue socket", item.getBlueSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
 				
 				//TODO resistances
 				

@@ -13,7 +13,7 @@
 			display: inline;
 		}
 	</ui:style>
-	<g:FocusPanel ui:field="selectButton">
+	<g:FocusPanel>
 		<g:FlowPanel styleName="{common.underline}">
 	 		<util:HiddenWithValue ui:field="slotId"/>
 			<util:HiddenWithValue ui:field="itemId"/>

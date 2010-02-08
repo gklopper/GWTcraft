@@ -1,7 +1,6 @@
 package com.gwtcraft.client.places.upgrade;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -16,9 +15,6 @@ public class UpgradeItemDisplay extends Composite implements Display{
 
 	interface UpgradeItemDisplayUiBinder extends UiBinder<Widget, UpgradeItemDisplay> {
 	}
-	
-	@UiField
-	HasClickHandlers selectButton;
 	
 	@UiField
 	HasWidgets statsOne;
@@ -44,7 +40,7 @@ public class UpgradeItemDisplay extends Composite implements Display{
 	@UiField
 	HasText area;
 
-	public UpgradeItemDisplay(Integer itemId, Integer slotId) {
+	public UpgradeItemDisplay() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -76,11 +72,6 @@ public class UpgradeItemDisplay extends Composite implements Display{
 	@Override
 	public HasWidgets getSpells() {
 		return spells;
-	}
-
-	@Override
-	public HasClickHandlers getSelectButton() {
-		return selectButton;
 	}
 
 	@Override

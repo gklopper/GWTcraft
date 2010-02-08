@@ -1,6 +1,7 @@
 package com.gwtcraft.client.places.upgrade;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -16,21 +17,26 @@ public class UpgradeItemStatisticDisplay extends Composite implements Display {
 	interface CurrentItemStatisticDisplayUiBinder extends
 			UiBinder<Widget, UpgradeItemStatisticDisplay> {
 	}
+	
+	interface Style extends CssResource {
+		String upgrade();
+		String downgrade();
+	}
+	
+	@UiField
+	Style style;
 
 	@UiField
 	HasText statistic;
 
 	@UiField
 	HasText value;
-
-	public UpgradeItemStatisticDisplay(String statistic, Integer value) {
-		this(statistic, String.valueOf(value));
-	}
 	
-	public UpgradeItemStatisticDisplay(String statistic, String value) {
+	@UiField
+	Widget wrapper;
+
+	public UpgradeItemStatisticDisplay() {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.statistic.setText(statistic);
-		this.value.setText(String.valueOf(value));
 	}
 
 	@Override
@@ -45,6 +51,24 @@ public class UpgradeItemStatisticDisplay extends Composite implements Display {
 
 	@Override
 	public HasText getValue() {
-		return value;
+		return new HasText() {
+			@Override
+			public void setText(String text) {
+				
+				Integer val = Integer.parseInt(text);
+				if (val > 0) {
+					wrapper.setStyleName(style.upgrade());
+					text = "+" + text;
+				} else {
+					wrapper.setStyleName(style.downgrade());
+				}
+				value.setText(text);
+			}
+			
+			@Override
+			public String getText() {
+				return value.getText();
+			}
+		};
 	}
 }

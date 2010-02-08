@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
+import com.gwtcraft.client.model.Statistic;
 
 public class ArmoryParserTest {
 	@Test
@@ -80,8 +81,11 @@ public class ArmoryParserTest {
 		Assert.assertEquals("Duskstalker Shoulderpads", item.getName());
 		Assert.assertEquals("inv_shoulder_89", item.getIcon());
 		
-		Assert.assertEquals(467, item.getArmor().intValue());
-		Assert.assertEquals(1, item.getYellowSockets().intValue());
+		Statistic expectedArmor = new Statistic("Armor", 467);
+		Assert.assertTrue(item.getStatistics().contains(expectedArmor));
+		
+		Statistic expectedSocket = new Statistic("Yellow socket", 1);
+		Assert.assertTrue(item.getStatistics().contains(expectedSocket));
 		Assert.assertEquals("Vendor", item.getSource());
 		
 	}
@@ -94,7 +98,8 @@ public class ArmoryParserTest {
 		ArmoryParser parser = new ArmoryParser();
 		ItemDetail item = parser.parseItem(xmlStream);
 		
-		Assert.assertEquals(1, item.getBlueSockets().intValue());
+		Statistic expectedSocket = new Statistic("Blue socket", 1);
+		Assert.assertTrue(item.getStatistics().contains(expectedSocket));
 	}
 	
 	@Test
@@ -127,8 +132,10 @@ public class ArmoryParserTest {
 		ArmoryParser parser = new ArmoryParser();
 		ItemDetail item = parser.parseItem(xmlStream);
 		
-		Assert.assertEquals(1, item.getMetaSockets().intValue());
-		Assert.assertEquals(1, item.getRedSockets().intValue());
+		Statistic expectedMetaSocket = new Statistic("Meta socket", 1);
+		Assert.assertTrue(item.getStatistics().contains(expectedMetaSocket));
+		Statistic expectedRedSocket = new Statistic("Red socket", 1);
+		Assert.assertTrue(item.getStatistics().contains(expectedRedSocket));
 		Assert.assertEquals("Onyxia", item.getCreatureName());
 		Assert.assertEquals("Onyxia's Lair", item.getAreaName());
 	}

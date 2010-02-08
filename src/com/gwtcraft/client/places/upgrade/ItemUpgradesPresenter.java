@@ -22,7 +22,7 @@ public class ItemUpgradesPresenter implements Presenter {
 	private final ArmoryServiceAsync armoryService;
 	private final String name;
 	private final String realm;
-	private final Integer itemId;
+	private ItemDetail currentItem;
 
 	public interface Display {
 		Widget asWidget();
@@ -32,12 +32,17 @@ public class ItemUpgradesPresenter implements Presenter {
 		HasWidgets getCurrentItemWrapper();
 	}
 	
-	public ItemUpgradesPresenter(ArmoryServiceAsync armoryService, Display view, String name, String realm, Integer itemId) {
+	public ItemUpgradesPresenter(ArmoryServiceAsync armoryService, 
+								Display view, 
+								String name, 
+								String realm, 
+								Integer currentItemId) {
 		this.armoryService = armoryService;
 		this.display = view;
 		this.name = name;
 		this.realm = realm;
-		this.itemId = itemId;
+		this.currentItem = new ItemDetail();
+		currentItem.setId(currentItemId);
 	}
 	
 	private void bind() {
@@ -46,7 +51,7 @@ public class ItemUpgradesPresenter implements Presenter {
 		display.getRealmField().setText(realm);
 		
 		//first load the current equipped item
-		armoryService.loadItem(itemId, new AsyncCallback<ItemDetail>() {
+		armoryService.loadItem(currentItem.getId(), new AsyncCallback<ItemDetail>() {
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -55,10 +60,11 @@ public class ItemUpgradesPresenter implements Presenter {
 
 			@Override
 			public void onSuccess(ItemDetail result) {
+				currentItem = result;
 				CurrentItemDisplay view = new CurrentItemDisplay();
-				new CurrentItemPresenter(armoryService, null, view, name, realm, result.getId(), false).go(display.getCurrentItemWrapper());
+				new CurrentItemPresenter(armoryService, null, view, name, realm, currentItem.getId(), false).go(display.getCurrentItemWrapper());
 				
-				armoryService.loadUpgradesFor(name, realm, itemId, new AsyncCallback<List<Integer>>() {
+				armoryService.loadUpgradesFor(name, realm, currentItem.getId(), new AsyncCallback<List<Integer>>() {
 
 					@Override
 					public void onFailure(Throwable caught) {
@@ -93,8 +99,8 @@ public class ItemUpgradesPresenter implements Presenter {
 		public boolean execute() {
 			if (itemsIterator.hasNext()) {
 				final Integer itemId = itemsIterator.next();
-				CurrentItemDisplay view = new CurrentItemDisplay();
-				new CurrentItemPresenter(armoryService, null, view, name, realm, itemId, false).go(display.getItemsWrapper());
+				UpgradeItemDisplay view = new UpgradeItemDisplay();
+				new UpgradeItemPresenter(armoryService, view, currentItem, itemId).go(display.getItemsWrapper());
 			}
 			return itemsIterator.hasNext();
 		}

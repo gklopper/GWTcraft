@@ -23,7 +23,8 @@ public class UpgradeItemStatisticPresenter implements Presenter {
 	}
 	
 	private void bind() {
-	
+		display.getStatistic().setText(statistic.getName());
+		display.getValue().setText(statistic.getValue().toString());
 	}
 	
 	@Override

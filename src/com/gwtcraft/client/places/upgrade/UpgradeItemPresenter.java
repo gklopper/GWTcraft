@@ -1,13 +1,14 @@
 package com.gwtcraft.client.places.upgrade;
 
-import com.google.gwt.event.dom.client.HasClickHandlers;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
 import com.gwtcraft.client.model.Statistic;
 import com.gwtcraft.client.places.Presenter;
@@ -19,7 +20,7 @@ public class UpgradeItemPresenter implements Presenter {
 
 	private final Display display;
 	private final ArmoryServiceAsync armoryService;
-	private final Item upgradeItem;
+	private ItemDetail upgradeItem;
 	private final ItemDetail currentItem;
 	
 
@@ -33,17 +34,17 @@ public class UpgradeItemPresenter implements Presenter {
 		HasWidgets getStatsTwo();
 		HasWidgets getSpells();
 		HasWidgets getIconWrapper();
-		HasClickHandlers getSelectButton();
 	}
 	
 	public UpgradeItemPresenter(ArmoryServiceAsync armoryService,
 								Display view,
 								ItemDetail currentItem,
-								Item upgradeItem) {
+								Integer upgradeItemId) {
 		this.armoryService = armoryService;
 		this.display = view;
 		this.currentItem = currentItem;
-		this.upgradeItem = upgradeItem;
+		this.upgradeItem = new ItemDetail();
+		upgradeItem.setId(upgradeItemId);
 	}
 
 	private void bind() {
@@ -52,33 +53,50 @@ public class UpgradeItemPresenter implements Presenter {
 		armoryService.loadItem(itemId, new AsyncCallback<ItemDetail>() {
 			
 			@Override
-			public void onSuccess(final ItemDetail item) {
-				display.getName().setText(item.getName());
+			public void onSuccess(final ItemDetail result) {
+				upgradeItem = result;
+				final List<Statistic> upgrades = new ArrayList<Statistic>(upgradeItem.getStatistics());
+
+				//work out upgrades and downgrades
+				for (Statistic currentStat : currentItem.getStatistics()) {
+					Statistic upgradeStat = getUpgradeStatistic(currentStat, upgrades);
+					if (upgradeStat == null) {
+						//we are losing this stat so it is a downgrade
+						Statistic stat = new Statistic(currentStat.getName(), currentStat.getValue() * -1);
+						upgrades.add(stat);
+					} else {
+						int difference = upgradeStat.getValue() - currentStat.getValue();
+						Statistic stat = new Statistic(currentStat.getName(), difference);
+						int index = upgrades.indexOf(upgradeStat);
+						
+						if (difference == 0) {
+							//do not display the stat if it is unchanged
+						    upgrades.remove(index);	
+						} else {
+							upgrades.set(index, stat);
+						}
+					}
+				}
 				
-				if (item.getCreatureName() == null) {
-					display.getSource().setText(item.getSource());
+				display.getName().setText(upgradeItem.getName());
+				
+				if (upgradeItem.getCreatureName() == null) {
+					display.getSource().setText(upgradeItem.getSource());
 				} else {
-					display.getCreature().setText(item.getCreatureName() + " - ");
-					display.getArea().setText(item.getAreaName());
+					display.getCreature().setText(upgradeItem.getCreatureName() + " - ");
+					display.getArea().setText(upgradeItem.getAreaName());
 				}
 				
 				display.getIconWrapper().clear();
 				
 				//TODO check T&Cs for using these images directly
-				display.getIconWrapper().add(new Image("http://eu.wowarmory.com/wow-icons/_images/51x51/" + item.getIcon() + ".jpg"));
-				
-				
-				if (item.getArmor() > 0) {
-					UpgradeItemStatisticDisplay view = new UpgradeItemStatisticDisplay("Armor", item.getArmor());
-					new UpgradeItemStatisticPresenter(view, null).go(display.getStatsOne());
-				}
-				
+				display.getIconWrapper().add(new Image("http://eu.wowarmory.com/wow-icons/_images/51x51/" + upgradeItem.getIcon() + ".jpg"));
+								
 				int count = 0;
-				for (Statistic stat : item.getStatistics()) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay(stat.getName(), stat.getValue());
-					CurrentItemStatisticPresenter presenter = new CurrentItemStatisticPresenter(view);
-					if (count++ < 3) {
-						//3 + armor = 4
+				for (Statistic stat : upgrades) {
+					UpgradeItemStatisticDisplay view = new UpgradeItemStatisticDisplay();
+					UpgradeItemStatisticPresenter presenter = new UpgradeItemStatisticPresenter(view, stat);
+					if (count++ < 4) {
 						presenter.go(display.getStatsOne());
 					} else {
 						presenter.go(display.getStatsTwo());
@@ -86,33 +104,13 @@ public class UpgradeItemPresenter implements Presenter {
 				}
 				
 				//TODO MP5
-				
-				if (item.getMetaSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Meta socket", item.getMetaSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
-				if (item.getRedSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Red socket", item.getRedSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
-				if (item.getYellowSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Yellow socket", item.getYellowSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
-				if (item.getBlueSockets() > 0) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Blue socket", item.getBlueSockets());
-					new CurrentItemStatisticPresenter(view).go(display.getStatsOne());
-				}
-				
-				for (String use : item.getUse()) {
+								
+				for (String use : upgradeItem.getUse()) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Use", use);
 					new CurrentItemStatisticPresenter(view).go(display.getSpells());
 				}
 				
-				for (String equip : item.getEquip()) {
+				for (String equip : upgradeItem.getEquip()) {
 					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Equip", equip);
 					new CurrentItemStatisticPresenter(view).go(display.getSpells());
 				} 
@@ -125,6 +123,16 @@ public class UpgradeItemPresenter implements Presenter {
 			}
 		});
 		
+	}
+
+	private Statistic getUpgradeStatistic(Statistic currentStat, List<Statistic> upgradeStatistics) {
+		String statName = currentStat.getName();
+		for (Statistic stat : upgradeStatistics) {
+			if (stat.getName().equals(statName)) {
+				return stat;
+			}
+		}
+		return null;
 	}
 	
 	@Override

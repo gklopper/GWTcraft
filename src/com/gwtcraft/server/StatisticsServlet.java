@@ -3,7 +3,6 @@ package com.gwtcraft.server;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.cache.CacheFactory;
 import javax.cache.CacheStatistics;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +39,11 @@ public class StatisticsServlet extends HttpServlet {
 		int numObjects = stats.getObjectCount();
 		out.println("<p>Hits: " + hits + "</p>");
 		out.println("<p>Misses: " + misses + "</p>");
-		out.println(String.format("<p>Hits/misses: %.2f</p>", (double)hits/(double)misses));
+		
+		double total = hits + misses;
+		
+		String hitrate = String.format("<p>Hit rate: %.2f", (((double)hits/total)) * 100);
+		out.println(hitrate + "% : (hits/(hits + misses)) * 100</p>");
 		out.println("<p>Total objects: " + numObjects + "</p>");
 		out.println("<br/>");
 	}

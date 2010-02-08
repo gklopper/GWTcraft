@@ -24,6 +24,8 @@ public class ArmoryParser {
 
 	private static final Map<String, String> STAT_NAMES = new HashMap<String, String>();
 	static {
+		STAT_NAMES.put("armor", "Armor");
+		
 		STAT_NAMES.put("bonusAgility", "Agi");
 		STAT_NAMES.put("bonusStamina", "Stam");
 		STAT_NAMES.put("bonusAttackPower", "AP");
@@ -40,6 +42,11 @@ public class ArmoryParser {
 		STAT_NAMES.put("bonusHitRating", "Hit");
 		STAT_NAMES.put("bonusHasteRating", "Haste");
 		STAT_NAMES.put("bonusBlockValue", "Block");
+		
+		STAT_NAMES.put("Yellow", "Yellow socket");
+		STAT_NAMES.put("Blue", "Blue socket");
+		STAT_NAMES.put("Red", "Red socket");
+		STAT_NAMES.put("Meta", "Meta socket");
 	}
 	
 	private static final Map<String, String> SOURCE_NAMES = new HashMap<String, String>();
@@ -116,6 +123,12 @@ public class ArmoryParser {
 		item.setName(itemElement.element("name").value().toString());
 		item.setIcon(itemElement.element("icon").value().toString());
 		
+		//armor
+		int armor = intValueOrZero(itemElement.element("armor"));
+		if (armor > 0) {
+			item.getStatistics().add(new Statistic(STAT_NAMES.get("armor"), armor));
+		}
+		
 		//stats
 		for (Element stat : itemElement.elements()) {
 			if (stat.name().startsWith("bonus")) {
@@ -130,6 +143,16 @@ public class ArmoryParser {
 					statistic.setValue(stat.value().toInteger());
 					item.getStatistics().add(statistic);
 				}
+			}
+		}
+		
+		//sockets
+		Element socketData = itemElement.element("socketData");
+		if (socketData != null) {
+			for (Element socket : socketData.elements("socket")) {
+				String colour = socket.attribute("color").toString();
+				Statistic statistic = getOrAddNewStatistic(item, colour);
+				statistic.setValue(statistic.getValue() + 1);
 			}
 		}
 		
@@ -150,28 +173,7 @@ public class ArmoryParser {
 			}
 		}
 		
-		//armor
-		item.setArmor(intValueOrZero(itemElement.element("armor")));
 		
-		//sockets
-		Element socketData = itemElement.element("socketData");
-		if (socketData != null) {
-			for (Element socket : socketData.elements("socket")) {
-				String colour = socket.attribute("color").toString();
-				if ("Yellow".equals(colour)) {
-					item.setYellowSockets(item.getYellowSockets() + 1);
-				}
-				if ("Blue".equals(colour)) {
-					item.setBlueSockets(item.getBlueSockets() + 1);
-				}
-				if ("Red".equals(colour)) {
-					item.setRedSockets(item.getRedSockets() + 1);
-				}
-				if ("Meta".equals(colour)) {
-					item.setMetaSockets(item.getMetaSockets() + 1);
-				}
-			}
-		}
 		
 		//spells
 		Element spellData = itemElement.element("spellData");
@@ -189,6 +191,20 @@ public class ArmoryParser {
 		} 
 		
 		return item;
+	}
+
+	private Statistic getOrAddNewStatistic(ItemDetail item, String statName) {
+		final String name = STAT_NAMES.get(statName);
+		for (Statistic stat : item.getStatistics()) {
+			if (stat.getName().equals(name)) {
+				return stat;
+			}
+		}
+		Statistic stat = new Statistic();
+		stat.setName(name);
+		stat.setValue(0);
+		item.getStatistics().add(stat);
+		return stat;
 	}
 
 	private Integer intValueOrZero(Element element) {
