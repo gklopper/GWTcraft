@@ -3,6 +3,7 @@ package com.gwtcraft.server;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.cache.CacheFactory;
 import javax.cache.CacheStatistics;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +21,9 @@ public class StatisticsServlet extends HttpServlet {
 
 			out.println("<html><head><title>Cache stats</title></head><body>");
 			
-			doCache("24 hours", ArmoryServiceImpl.cache24hours.getCacheStatistics(), out);
-			doCache("30 minutes", ArmoryServiceImpl.cache30min.getCacheStatistics(), out);
+			//only need to do 1 cache
+			//have seen that all stats are amalgamated
+			doCache("Cache Statistics", ArmoryServiceImpl.cache24hours.getCacheStatistics(), out);
 
 			out.println("</body></html>");
 			
