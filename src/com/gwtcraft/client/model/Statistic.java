@@ -8,7 +8,7 @@ public class Statistic implements Serializable {
 	private String name;
 	private Integer value;
 	
-	public Statistic(){}
+	public Statistic() {}
 	
 	public Statistic(String name, Integer value) {
 		this.name = name;

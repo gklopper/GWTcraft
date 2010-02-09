@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.upgrade;
+package com.gwtcraft.client.places.upgrade.statistic.copy;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.CssResource;
@@ -7,7 +7,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.places.upgrade.UpgradeItemStatisticPresenter.Display;
+import com.gwtcraft.client.places.upgrade.statistic.UpgradeItemStatisticPresenter.Display;
 
 public class UpgradeItemStatisticDisplay extends Composite implements Display {
 
@@ -51,24 +51,14 @@ public class UpgradeItemStatisticDisplay extends Composite implements Display {
 
 	@Override
 	public HasText getValue() {
-		return new HasText() {
-			@Override
-			public void setText(String text) {
-				
-				Integer val = Integer.parseInt(text);
-				if (val > 0) {
-					wrapper.setStyleName(style.upgrade());
-					text = "+" + text;
-				} else {
-					wrapper.setStyleName(style.downgrade());
-				}
-				value.setText(text);
-			}
-			
-			@Override
-			public String getText() {
-				return value.getText();
-			}
-		};
+		return value;
+	}
+	
+	public void setUpgrade(boolean isUpgrade) {
+		if (isUpgrade) {
+			wrapper.setStyleName(style.upgrade());
+		} else {
+			wrapper.setStyleName(style.downgrade());
+		}
 	}
 }

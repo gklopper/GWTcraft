@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.character;
+package com.gwtcraft.client.places.character.item;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -13,8 +13,13 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.event.ItemSelectedEvent;
 import com.gwtcraft.client.model.ItemDetail;
+import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
 import com.gwtcraft.client.places.Presenter;
+import com.gwtcraft.client.places.character.spell.CurrentItemSpellDisplay;
+import com.gwtcraft.client.places.character.spell.CurrentItemSpellPresenter;
+import com.gwtcraft.client.places.character.statistic.CurrentItemStatisticDisplay;
+import com.gwtcraft.client.places.character.statistic.CurrentItemStatisticPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 
 public class CurrentItemPresenter implements Presenter {
@@ -90,18 +95,9 @@ public class CurrentItemPresenter implements Presenter {
 					}
 				}
 				
-				//TODO MP5
-				
-				//TODO resistances
-				
-				for (String use : item.getUse()) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Use", use);
-					new CurrentItemStatisticPresenter(view).go(display.getSpells());
-				}
-				
-				for (String equip : item.getEquip()) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Equip", equip);
-					new CurrentItemStatisticPresenter(view).go(display.getSpells());
+				for (Spell spell : item.getSpells()) {
+					CurrentItemSpellDisplay view = new CurrentItemSpellDisplay();
+					new CurrentItemSpellPresenter(view, spell).go(display.getSpells());
 				}
 				
 				if (selectable) {

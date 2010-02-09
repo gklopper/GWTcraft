@@ -3,7 +3,7 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:util="urn:import:com.gwtcraft.client.places.util">
 	
-	<ui:style field="common" src="../common.css"/>
+	<ui:style field="common" src="../../common.css"/>
 	
 	<ui:style>
 		.details {

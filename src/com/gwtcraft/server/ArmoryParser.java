@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
+import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
 import com.rsx.Element;
 import com.rsx.impl.ReallySimpleXmlImpl;
@@ -42,6 +43,7 @@ public class ArmoryParser {
 		STAT_NAMES.put("bonusHitRating", "Hit");
 		STAT_NAMES.put("bonusHasteRating", "Haste");
 		STAT_NAMES.put("bonusBlockValue", "Block");
+		STAT_NAMES.put("bonusManaRegen", "MP5");
 		
 		STAT_NAMES.put("Yellow", "Yellow socket");
 		STAT_NAMES.put("Blue", "Blue socket");
@@ -179,13 +181,13 @@ public class ArmoryParser {
 		Element spellData = itemElement.element("spellData");
 		if (spellData != null) {
 			for (Element spell : spellData.elements("spell")) {
-				
+				String description = spell.element("desc").value().toString();
 				if (spell.element("trigger").value().toInteger().equals(0)) {
-					item.getUse().add(spell.element("desc").value().toString());
+					item.getSpells().add(new Spell("Use", description));
 				}
 				
 				if (spell.element("trigger").value().toInteger().equals(1)) {
-					item.getEquip().add(spell.element("desc").value().toString());
+					item.getSpells().add(new Spell("Equip", description));
 				}
 			}
 		} 

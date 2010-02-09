@@ -13,6 +13,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.places.Presenter;
+import com.gwtcraft.client.places.character.item.CurrentItemDisplay;
+import com.gwtcraft.client.places.character.item.CurrentItemPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 
 public class CharacterItemsPresenter implements Presenter {

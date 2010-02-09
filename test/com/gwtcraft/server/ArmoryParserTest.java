@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.gwtcraft.client.model.ArmoryCharacter;
 import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
+import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
 
 public class ArmoryParserTest {
@@ -110,7 +111,8 @@ public class ArmoryParserTest {
 		ArmoryParser parser = new ArmoryParser();
 		ItemDetail item = parser.parseItem(xmlStream);
 		
-		Assert.assertEquals("Increases dodge rating by 512 for 20 sec.", item.getUse().get(0));
+		Spell expectedUse = new Spell("Use", "Increases dodge rating by 512 for 20 sec.");
+		Assert.assertTrue(item.getSpells().contains(expectedUse));
 	}
 	
 	@Test
@@ -121,7 +123,8 @@ public class ArmoryParserTest {
 		ArmoryParser parser = new ArmoryParser();
 		ItemDetail item = parser.parseItem(xmlStream);
 		
-		Assert.assertEquals("Each time a melee attack strikes you, you have a chance to gain 7056 armor for 10 sec.", item.getEquip().get(0));
+		Spell expectedEquip = new Spell("Equip", "Each time a melee attack strikes you, you have a chance to gain 7056 armor for 10 sec.");
+		Assert.assertTrue(item.getSpells().contains(expectedEquip));
 	}
 	
 	@Test

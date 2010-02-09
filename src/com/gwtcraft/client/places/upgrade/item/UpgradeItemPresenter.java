@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.upgrade;
+package com.gwtcraft.client.places.upgrade.item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,13 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.ItemDetail;
+import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
 import com.gwtcraft.client.places.Presenter;
-import com.gwtcraft.client.places.character.CurrentItemStatisticDisplay;
-import com.gwtcraft.client.places.character.CurrentItemStatisticPresenter;
+import com.gwtcraft.client.places.upgrade.spell.UpgradeItemSpellDisplay;
+import com.gwtcraft.client.places.upgrade.spell.UpgradeItemSpellPresenter;
+import com.gwtcraft.client.places.upgrade.statistic.UpgradeItemStatisticDisplay;
+import com.gwtcraft.client.places.upgrade.statistic.UpgradeItemStatisticPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 
 public class UpgradeItemPresenter implements Presenter {
@@ -103,17 +106,15 @@ public class UpgradeItemPresenter implements Presenter {
 					}
 				}
 				
-				//TODO MP5
-								
-				for (String use : upgradeItem.getUse()) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Use", use);
-					new CurrentItemStatisticPresenter(view).go(display.getSpells());
+				for (Spell spell : currentItem.getSpells()) {
+					UpgradeItemSpellDisplay view = new UpgradeItemSpellDisplay();
+					new UpgradeItemSpellPresenter(view, spell, false).go(display.getSpells());
 				}
 				
-				for (String equip : upgradeItem.getEquip()) {
-					CurrentItemStatisticDisplay view = new CurrentItemStatisticDisplay("Equip", equip);
-					new CurrentItemStatisticPresenter(view).go(display.getSpells());
-				} 
+				for (Spell spell : upgradeItem.getSpells()) {
+					UpgradeItemSpellDisplay view = new UpgradeItemSpellDisplay();
+					new UpgradeItemSpellPresenter(view, spell, true).go(display.getSpells());
+				}
 			}
 			
 			@Override

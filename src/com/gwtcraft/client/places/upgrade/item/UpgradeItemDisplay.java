@@ -1,32 +1,20 @@
-package com.gwtcraft.client.places.character;
+package com.gwtcraft.client.places.upgrade.item;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.places.character.CurrentItemPresenter.Display;
+import com.gwtcraft.client.places.upgrade.item.UpgradeItemPresenter.Display;
 
-public class CurrentItemDisplay extends Composite implements Display{
+public class UpgradeItemDisplay extends Composite implements Display{
 
-	private static CurrentItemDisplayUiBinder uiBinder = GWT
-			.create(CurrentItemDisplayUiBinder.class);
+	private static UpgradeItemDisplayUiBinder uiBinder = GWT.create(UpgradeItemDisplayUiBinder.class);
 
-	interface CurrentItemDisplayUiBinder extends UiBinder<Widget, CurrentItemDisplay> {
+	interface UpgradeItemDisplayUiBinder extends UiBinder<Widget, UpgradeItemDisplay> {
 	}
-	
-	@UiField
-	HasClickHandlers selectButton;
-
-	@UiField
-	HasValue<String> slotId;
-	
-	@UiField
-	HasValue<String> itemId;
 	
 	@UiField
 	HasWidgets statsOne;
@@ -52,23 +40,13 @@ public class CurrentItemDisplay extends Composite implements Display{
 	@UiField
 	HasText area;
 
-	public CurrentItemDisplay() {
+	public UpgradeItemDisplay() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
 	@Override
 	public Widget asWidget() {
 		return this;
-	}
-
-	@Override
-	public HasValue<String> getIdField() {
-		return itemId;
-	}
-
-	@Override
-	public HasValue<String> getSlotField() {
-		return slotId;
 	}
 
 	@Override
@@ -94,11 +72,6 @@ public class CurrentItemDisplay extends Composite implements Display{
 	@Override
 	public HasWidgets getSpells() {
 		return spells;
-	}
-
-	@Override
-	public HasClickHandlers getSelectButton() {
-		return selectButton;
 	}
 
 	@Override

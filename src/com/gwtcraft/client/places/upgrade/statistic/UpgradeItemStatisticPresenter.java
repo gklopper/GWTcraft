@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.upgrade;
+package com.gwtcraft.client.places.upgrade.statistic;
 
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -15,6 +15,7 @@ public class UpgradeItemStatisticPresenter implements Presenter {
 		Widget asWidget();
 		HasText getStatistic();
 		HasText getValue();
+		void setUpgrade(boolean isUpgrade);
 	}
 	
 	public UpgradeItemStatisticPresenter(Display view, Statistic statistic) {
@@ -25,6 +26,11 @@ public class UpgradeItemStatisticPresenter implements Presenter {
 	private void bind() {
 		display.getStatistic().setText(statistic.getName());
 		display.getValue().setText(statistic.getValue().toString());
+		if (statistic.getValue() > 0) {
+			display.setUpgrade(true);
+		} else {
+			display.setUpgrade(false);
+		}
 	}
 	
 	@Override

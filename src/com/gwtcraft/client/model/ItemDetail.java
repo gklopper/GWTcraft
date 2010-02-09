@@ -8,12 +8,12 @@ public class ItemDetail extends Item {
 	
 	private String name;
 	private String icon;
-	private List<String> use = new ArrayList<String>();
-	private List<String> equip = new ArrayList<String>();
 	private List<Statistic> statistics = new ArrayList<Statistic>();
+	private List<Spell> spells = new ArrayList<Spell>();
 	private String source;
 	private String areaName;
 	private String creatureName;
+	
 	
 	public List<Statistic> getStatistics() {
 		return statistics;
@@ -39,22 +39,6 @@ public class ItemDetail extends Item {
 		this.icon = icon;
 	}
 
-	public void setUse(List<String> use) {
-		this.use = use;
-	}
-
-	public List<String> getUse() {
-		return use;
-	}
-
-	public void setEquip(List<String> equip) {
-		this.equip = equip;
-	}
-
-	public List<String> getEquip() {
-		return equip;
-	}
-
 	public String getSource() {
 		return source;
 	}
@@ -77,5 +61,13 @@ public class ItemDetail extends Item {
 
 	public void setCreatureName(String creatureName) {
 		this.creatureName = creatureName;
+	}
+
+	public List<Spell> getSpells() {
+		return spells;
+	}
+
+	public void setSpells(List<Spell> spells) {
+		this.spells = spells;
 	}
 }
