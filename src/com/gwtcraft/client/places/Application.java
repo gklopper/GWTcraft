@@ -64,7 +64,15 @@ public class Application implements Presenter, ValueChangeHandler<String> {
 		eventBus.addHandler(SearchInitiatedEvent.TYPE, new SearchInitiatedEventHandler() {
 			@Override
 			public void onSearchInitiated(SearchInitiatedEvent event) {
-				History.newItem("q=" + URL.encode(event.getSearchTerm()));
+				
+				String searchHistory = "q=" + URL.encode(event.getSearchTerm());
+				String oldHistory = History.getToken();
+				
+				if (searchHistory.equals(oldHistory)) {
+					History.fireCurrentHistoryState();
+				} else {
+					History.newItem("q=" + URL.encode(event.getSearchTerm()));
+				}
 			}
 		});
 		
