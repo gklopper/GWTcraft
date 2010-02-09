@@ -1,7 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<ui:style type="com.gwtcraft.client.places.upgrade.statistic.UpgradeItemStatisticDisplay.Style">
+	<ui:style type="com.gwtcraft.client.places.upgrade.item.spell.UpgradeItemSpellDisplay.Style">
 		
 		.info {
 			display: inline;
@@ -18,8 +18,8 @@
 	</ui:style>
 	
 	<g:HTMLPanel ui:field="wrapper">
-		<g:Label styleName="{style.info}" ui:field="statistic"/>
+		<g:Label styleName="{style.info}" ui:field="type"/>
 		<g:HTML styleName="{style.info}"> : </g:HTML>
-		<g:Label styleName="{style.info}" ui:field="value"/>
+		<g:Label styleName="{style.info}" ui:field="description"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

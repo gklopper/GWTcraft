@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.character.statistic;
+package com.gwtcraft.client.places.current.item.statistic;
 
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;

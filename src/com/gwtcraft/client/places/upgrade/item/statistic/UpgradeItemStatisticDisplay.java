@@ -1,36 +1,42 @@
-package com.gwtcraft.client.places.character.statistic;
+package com.gwtcraft.client.places.upgrade.item.statistic;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.places.character.statistic.CurrentItemStatisticPresenter.Display;
+import com.gwtcraft.client.places.upgrade.item.statistic.UpgradeItemStatisticPresenter.Display;
 
-public class CurrentItemStatisticDisplay extends Composite implements Display {
+public class UpgradeItemStatisticDisplay extends Composite implements Display {
 
 	private static CurrentItemStatisticDisplayUiBinder uiBinder = GWT
 			.create(CurrentItemStatisticDisplayUiBinder.class);
 
 	interface CurrentItemStatisticDisplayUiBinder extends
-			UiBinder<Widget, CurrentItemStatisticDisplay> {
+			UiBinder<Widget, UpgradeItemStatisticDisplay> {
 	}
+	
+	interface Style extends CssResource {
+		String upgrade();
+		String downgrade();
+	}
+	
+	@UiField
+	Style style;
 
 	@UiField
 	HasText statistic;
 
 	@UiField
 	HasText value;
-
-	public CurrentItemStatisticDisplay(String statistic, Integer value) {
-		this(statistic, String.valueOf(value));
-	}
 	
-	public CurrentItemStatisticDisplay(String statistic, String value) {
+	@UiField
+	Widget wrapper;
+
+	public UpgradeItemStatisticDisplay() {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.statistic.setText(statistic);
-		this.value.setText(String.valueOf(value));
 	}
 
 	@Override
@@ -46,5 +52,13 @@ public class CurrentItemStatisticDisplay extends Composite implements Display {
 	@Override
 	public HasText getValue() {
 		return value;
+	}
+	
+	public void setUpgrade(boolean isUpgrade) {
+		if (isUpgrade) {
+			wrapper.setStyleName(style.upgrade());
+		} else {
+			wrapper.setStyleName(style.downgrade());
+		}
 	}
 }

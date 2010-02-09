@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.upgrade.statistic.copy;
+package com.gwtcraft.client.places.upgrade.item.spell;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.CssResource;
@@ -7,15 +7,14 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.places.upgrade.statistic.UpgradeItemStatisticPresenter.Display;
 
-public class UpgradeItemStatisticDisplay extends Composite implements Display {
+public class UpgradeItemSpellDisplay extends Composite implements UpgradeItemSpellPresenter.Display {
 
 	private static CurrentItemStatisticDisplayUiBinder uiBinder = GWT
 			.create(CurrentItemStatisticDisplayUiBinder.class);
 
 	interface CurrentItemStatisticDisplayUiBinder extends
-			UiBinder<Widget, UpgradeItemStatisticDisplay> {
+			UiBinder<Widget, UpgradeItemSpellDisplay> {
 	}
 	
 	interface Style extends CssResource {
@@ -27,15 +26,15 @@ public class UpgradeItemStatisticDisplay extends Composite implements Display {
 	Style style;
 
 	@UiField
-	HasText statistic;
+	HasText type;
 
 	@UiField
-	HasText value;
+	HasText description;
 	
 	@UiField
 	Widget wrapper;
 
-	public UpgradeItemStatisticDisplay() {
+	public UpgradeItemSpellDisplay() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -45,13 +44,13 @@ public class UpgradeItemStatisticDisplay extends Composite implements Display {
 	}
 
 	@Override
-	public HasText getStatistic() {
-		return statistic;
+	public HasText getType() {
+		return type;
 	}
 
 	@Override
-	public HasText getValue() {
-		return value;
+	public HasText getDescription() {
+		return description;
 	}
 	
 	public void setUpgrade(boolean isUpgrade) {

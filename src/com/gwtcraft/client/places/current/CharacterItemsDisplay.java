@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.character;
+package com.gwtcraft.client.places.current;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -7,7 +7,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.places.character.CharacterItemsPresenter.Display;
+import com.gwtcraft.client.places.current.CharacterItemsPresenter.Display;
 
 public class CharacterItemsDisplay extends Composite implements Display {
 

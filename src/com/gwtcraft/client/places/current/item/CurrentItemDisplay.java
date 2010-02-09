@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.character.item;
+package com.gwtcraft.client.places.current.item;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtcraft.client.places.character.item.CurrentItemPresenter.Display;
+import com.gwtcraft.client.places.current.item.CurrentItemPresenter.Display;
 
 public class CurrentItemDisplay extends Composite implements Display{
 

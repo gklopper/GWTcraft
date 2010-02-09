@@ -1,4 +1,4 @@
-package com.gwtcraft.client.places.character.item;
+package com.gwtcraft.client.places.current.item;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -16,10 +16,10 @@ import com.gwtcraft.client.model.ItemDetail;
 import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
 import com.gwtcraft.client.places.Presenter;
-import com.gwtcraft.client.places.character.spell.CurrentItemSpellDisplay;
-import com.gwtcraft.client.places.character.spell.CurrentItemSpellPresenter;
-import com.gwtcraft.client.places.character.statistic.CurrentItemStatisticDisplay;
-import com.gwtcraft.client.places.character.statistic.CurrentItemStatisticPresenter;
+import com.gwtcraft.client.places.current.item.spell.CurrentItemSpellDisplay;
+import com.gwtcraft.client.places.current.item.spell.CurrentItemSpellPresenter;
+import com.gwtcraft.client.places.current.item.statistic.CurrentItemStatisticDisplay;
+import com.gwtcraft.client.places.current.item.statistic.CurrentItemStatisticPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 
 public class CurrentItemPresenter implements Presenter {

@@ -13,10 +13,10 @@ import com.gwtcraft.client.model.ItemDetail;
 import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
 import com.gwtcraft.client.places.Presenter;
-import com.gwtcraft.client.places.upgrade.spell.UpgradeItemSpellDisplay;
-import com.gwtcraft.client.places.upgrade.spell.UpgradeItemSpellPresenter;
-import com.gwtcraft.client.places.upgrade.statistic.UpgradeItemStatisticDisplay;
-import com.gwtcraft.client.places.upgrade.statistic.UpgradeItemStatisticPresenter;
+import com.gwtcraft.client.places.upgrade.item.spell.UpgradeItemSpellDisplay;
+import com.gwtcraft.client.places.upgrade.item.spell.UpgradeItemSpellPresenter;
+import com.gwtcraft.client.places.upgrade.item.statistic.UpgradeItemStatisticDisplay;
+import com.gwtcraft.client.places.upgrade.item.statistic.UpgradeItemStatisticPresenter;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
 
 public class UpgradeItemPresenter implements Presenter {
