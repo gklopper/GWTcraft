@@ -66,15 +66,15 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 		}
 	}
 
-	public List<ArmoryCharacter> search(String searchTerm) {
+	public List<ArmoryCharacter> search(String regionCode, String searchTerm) {
 		try {
-			String cacheKey = CacheKeyService.key(searchTerm);
+			String cacheKey = CacheKeyService.key(searchTerm, regionCode);
 			List<ArmoryCharacter> characters = (List<ArmoryCharacter>) cache30min
 					.get(cacheKey);
 
 			if (characters == null) {
 				URL url = new URL(
-						"http://eu.wowarmory.com/search.xml?searchQuery="
+						"http://" + regionCode + ".wowarmory.com/search.xml?searchQuery="
 								+ URLEncoder.encode(searchTerm, "UTF-8"));
 				HttpURLConnection connection = (HttpURLConnection) url
 						.openConnection();
@@ -114,15 +114,15 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public List<Item> loadItemsFor(String name, String realm) {
+	public List<Item> loadItemsFor(String regionCode, String name, String realm) {
 		try {
-			String cacheKey = CacheKeyService.key(name + "_" + realm);
+			String cacheKey = CacheKeyService.key(name + "_" + realm, regionCode);
 			List<Item> items = (List<Item>) cache30min.get(cacheKey);
 
 			if (items == null) {
 				String urlString = String
 						.format(
-								"http://eu.wowarmory.com/character-sheet.xml?r=%s&n=%s",
+								"http://" + regionCode + ".wowarmory.com/character-sheet.xml?r=%s&n=%s",
 								URLEncoder.encode(realm, "UTF-8"), URLEncoder
 										.encode(name, "UTF-8"));
 				URL url = new URL(urlString);
@@ -141,13 +141,13 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public ItemDetail loadItem(Integer id) {
+	public ItemDetail loadItem(String regionCode, Integer id) {
 		try {
-			String cacheKey = CacheKeyService.key("item_" + id);
+			String cacheKey = CacheKeyService.key("item_" + id, regionCode);
 			ItemDetail item = (ItemDetail) cache24hours.get(cacheKey);
 
 			if (item == null) {
-				URL url = new URL("http://eu.wowarmory.com/item-tooltip.xml?i="
+				URL url = new URL("http://" + regionCode + ".wowarmory.com/item-tooltip.xml?i="
 						+ id);
 				HttpURLConnection connection = (HttpURLConnection) url
 						.openConnection();
@@ -174,17 +174,17 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public List<Integer> loadUpgradesFor(String playerName, String playerRealm,
+	public List<Integer> loadUpgradesFor(String regionCode, String playerName, String playerRealm,
 			Integer itemId) {
 		String requestUrl = null;
 		try {
 			requestUrl = String
 					.format(
-							"http://eu.wowarmory.com/search.xml?searchType=items&pr=%s&pn=%s&pi=%s",
+							"http://" + regionCode + ".wowarmory.com/search.xml?searchType=items&pr=%s&pn=%s&pi=%s",
 							URLEncoder.encode(playerRealm, "UTF-8"),
 							URLEncoder.encode(playerName, "UTF-8"),
 							String.valueOf(itemId));
-			String key = CacheKeyService.key(requestUrl);
+			String key = CacheKeyService.key(requestUrl, regionCode);
 
 			List<Integer> items = (List<Integer>) cache30min.get(key);
 

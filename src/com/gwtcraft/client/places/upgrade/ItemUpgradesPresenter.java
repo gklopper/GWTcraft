@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.ItemDetail;
+import com.gwtcraft.client.places.Application;
 import com.gwtcraft.client.places.Presenter;
 import com.gwtcraft.client.places.current.item.CurrentItemDisplay;
 import com.gwtcraft.client.places.current.item.CurrentItemPresenter;
@@ -53,7 +54,7 @@ public class ItemUpgradesPresenter implements Presenter {
 		display.getRealmField().setText(realm);
 		
 		//first load the current equipped item
-		armoryService.loadItem(currentItem.getId(), new AsyncCallback<ItemDetail>() {
+		armoryService.loadItem(Application.getRegionCode(), currentItem.getId(), new AsyncCallback<ItemDetail>() {
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -66,7 +67,7 @@ public class ItemUpgradesPresenter implements Presenter {
 				CurrentItemDisplay view = new CurrentItemDisplay();
 				new CurrentItemPresenter(armoryService, null, view, name, realm, currentItem.getId(), false).go(display.getCurrentItemWrapper());
 				
-				armoryService.loadUpgradesFor(name, realm, currentItem.getId(), new AsyncCallback<List<Integer>>() {
+				armoryService.loadUpgradesFor(Application.getRegionCode(), name, realm, currentItem.getId(), new AsyncCallback<List<Integer>>() {
 
 					@Override
 					public void onFailure(Throwable caught) {

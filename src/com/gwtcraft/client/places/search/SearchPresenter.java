@@ -3,8 +3,11 @@ package com.gwtcraft.client.places.search;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasChangeHandlers;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.DeferredCommand;
@@ -14,8 +17,10 @@ import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtcraft.client.event.RegionChangedEvent;
 import com.gwtcraft.client.event.SearchInitiatedEvent;
 import com.gwtcraft.client.model.ArmoryCharacter;
+import com.gwtcraft.client.places.Application;
 import com.gwtcraft.client.places.Presenter;
 import com.gwtcraft.client.places.util.Spinner;
 import com.gwtcraft.client.service.ArmoryServiceAsync;
@@ -32,6 +37,7 @@ public class SearchPresenter implements Presenter {
 		HasValue<String> getSearchField();
 		HasWidgets getResultArea();
 		HasWidgets getRecentSearches();
+		HasChangeHandlers getRegion();
 		Widget asWidget();
 	}
 	
@@ -46,6 +52,7 @@ public class SearchPresenter implements Presenter {
 		this.searchTerm = searchTerm;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void bind() {
 		display.getSearchButton().addClickHandler(new ClickHandler() {
 			@Override
@@ -59,6 +66,16 @@ public class SearchPresenter implements Presenter {
 			display.getSearchField().setValue(searchTerm);
 			search(searchTerm);
 		}
+		
+		((HasValue<String>) display.getRegion()).setValue(Application.getRegionCode());
+		
+		display.getRegion().addChangeHandler(new ChangeHandler() {
+			@Override
+			public void onChange(ChangeEvent event) {
+				String region = ((HasValue<String>) event.getSource()).getValue();
+				eventBus.fireEvent(new RegionChangedEvent(region));
+			}
+		});
 	}
 	
 	@Override
@@ -72,7 +89,7 @@ public class SearchPresenter implements Presenter {
 		
 		display.getResultArea().add(new Spinner());
 		
-		armoryService.search(searchTerm, new AsyncCallback<List<ArmoryCharacter>>() {
+		armoryService.search(Application.getRegionCode(), searchTerm, new AsyncCallback<List<ArmoryCharacter>>() {
 			
 			@Override
 			public void onSuccess(final List<ArmoryCharacter> characters) {

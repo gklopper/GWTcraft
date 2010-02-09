@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.ItemDetail;
 import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
+import com.gwtcraft.client.places.Application;
 import com.gwtcraft.client.places.Presenter;
 import com.gwtcraft.client.places.upgrade.item.spell.UpgradeItemSpellDisplay;
 import com.gwtcraft.client.places.upgrade.item.spell.UpgradeItemSpellPresenter;
@@ -53,7 +54,7 @@ public class UpgradeItemPresenter implements Presenter {
 	private void bind() {
 		Integer itemId = upgradeItem.getId();
 		
-		armoryService.loadItem(itemId, new AsyncCallback<ItemDetail>() {
+		armoryService.loadItem(Application.getRegionCode(), itemId, new AsyncCallback<ItemDetail>() {
 			
 			@Override
 			public void onSuccess(final ItemDetail result) {

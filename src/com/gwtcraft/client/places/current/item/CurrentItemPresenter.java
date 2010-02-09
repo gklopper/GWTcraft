@@ -15,6 +15,7 @@ import com.gwtcraft.client.event.ItemSelectedEvent;
 import com.gwtcraft.client.model.ItemDetail;
 import com.gwtcraft.client.model.Spell;
 import com.gwtcraft.client.model.Statistic;
+import com.gwtcraft.client.places.Application;
 import com.gwtcraft.client.places.Presenter;
 import com.gwtcraft.client.places.current.item.spell.CurrentItemSpellDisplay;
 import com.gwtcraft.client.places.current.item.spell.CurrentItemSpellPresenter;
@@ -66,7 +67,7 @@ public class CurrentItemPresenter implements Presenter {
 
 	private void bind() {
 		
-		armoryService.loadItem(itemId, new AsyncCallback<ItemDetail>() {
+		armoryService.loadItem(Application.getRegionCode(), itemId, new AsyncCallback<ItemDetail>() {
 			
 			@Override
 			public void onSuccess(final ItemDetail item) {

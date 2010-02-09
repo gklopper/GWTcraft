@@ -1,15 +1,20 @@
 package com.gwtcraft.client.places;
 
+import java.util.Date;
+
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.http.client.URL;
+import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.gwtcraft.client.event.CharacterSelectedEvent;
 import com.gwtcraft.client.event.CharacterSelectedEventHandler;
 import com.gwtcraft.client.event.ItemSelectedEvent;
 import com.gwtcraft.client.event.ItemSelectedEventHandler;
+import com.gwtcraft.client.event.RegionChangedEvent;
+import com.gwtcraft.client.event.RegionChangedEventHandler;
 import com.gwtcraft.client.event.SearchInitiatedEvent;
 import com.gwtcraft.client.event.SearchInitiatedEventHandler;
 import com.gwtcraft.client.places.current.CharacterItemsDisplay;
@@ -27,10 +32,21 @@ public class Application implements Presenter, ValueChangeHandler<String> {
 	private final ArmoryServiceAsync armoryService;
 	private final HandlerManager eventBus;
 	private HasWidgets container;
-
+	private static String regionCode = "www";
+	
 	public Application(ArmoryServiceAsync armoryService, HandlerManager eventBus) {
 		this.armoryService = armoryService;
 		this.eventBus = eventBus;
+		
+		String region = Cookies.getCookie("region");
+		
+		if (region != null) {
+			regionCode = region;
+			
+			//refresh the cookie
+			setRegionCookie();
+		}
+		
 		addHandlers();
 	}
 	
@@ -60,12 +76,27 @@ public class Application implements Presenter, ValueChangeHandler<String> {
 						        "&r=" + URL.encode(event.getCharacterRealm()));
 			}
 		});
+		
+		eventBus.addHandler(RegionChangedEvent.TYPE, new RegionChangedEventHandler() {
+			@Override
+			public void onRegionChange(RegionChangedEvent event) {
+				regionCode = event.getRegionCode();
+				setRegionCookie();
+			}
+		});
 	}
 
 	private void showCharacter(String name, String realm) {
 		container.clear();
 		CharacterItemsDisplay view = new CharacterItemsDisplay(name, realm);
 		new CharacterItemsPresenter(armoryService, eventBus, view).go(container);
+	}
+	
+	private void setRegionCookie() {
+		Date now = new Date();
+		long twentyDays = 1000 * 60 * 60 * 24 * 20;
+		long later = now.getTime() + twentyDays;
+		Cookies.setCookie("region", regionCode, new Date(later));
 	}
 	
 	private void showUpgrade(Integer itemId, String name, String realm) {
@@ -106,5 +137,9 @@ public class Application implements Presenter, ValueChangeHandler<String> {
 			//default is new blank search page
 			History.newItem("search");
 		}
+	}
+	
+	public static String getRegionCode() {
+		return regionCode;
 	}
 }

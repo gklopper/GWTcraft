@@ -13,8 +13,8 @@ import com.gwtcraft.client.model.ItemDetail;
  */
 @RemoteServiceRelativePath("greet")
 public interface ArmoryService extends RemoteService {
-	List<ArmoryCharacter> search(String searchTerm);
-	List<Item> loadItemsFor(String name, String realm);
-	ItemDetail loadItem(Integer id);
-	List<Integer> loadUpgradesFor(String name, String realm, Integer itemId);
+	List<ArmoryCharacter> search(String regionCode, String searchTerm);
+	List<Item> loadItemsFor(String regionCode, String name, String realm);
+	ItemDetail loadItem(String regionCode, Integer id);
+	List<Integer> loadUpgradesFor(String regionCode, String name, String realm, Integer itemId);
 }

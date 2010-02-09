@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtcraft.client.model.Item;
+import com.gwtcraft.client.places.Application;
 import com.gwtcraft.client.places.Presenter;
 import com.gwtcraft.client.places.current.item.CurrentItemDisplay;
 import com.gwtcraft.client.places.current.item.CurrentItemPresenter;
@@ -41,7 +42,7 @@ public class CharacterItemsPresenter implements Presenter {
 	}
 
 	private void bind() {
-		armoryService.loadItemsFor(display.getNameField().getText(), display
+		armoryService.loadItemsFor(Application.getRegionCode(), display.getNameField().getText(), display
 				.getRealmField().getText(), new AsyncCallback<List<Item>>() {
 
 			@Override

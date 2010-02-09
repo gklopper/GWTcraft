@@ -1,6 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:util="urn:import:com.gwtcraft.client.places.util">
 
 	<ui:style field="common" src="../common.css" />
 		
@@ -12,8 +13,12 @@
 			font-size: 18px;
 		}
 		
+		.region {
+			margin-top: 5px;
+			width: 280px;
+		}
+		
 		.search {
-			max-height: 40px;
 			min-height: 40px;
 		}
 		
@@ -29,6 +34,9 @@
 				<g:Image styleName="{style.searchButton}" url="/images/search.png"
 					ui:field="search"></g:Image>
 			</g:HorizontalPanel>
+			<g:FlowPanel>
+				<util:ListBoxWithValue styleName="{style.region}" ui:field="region"/>
+			</g:FlowPanel>
 		</g:FlowPanel>
 		<g:FlowPanel ui:field="resultsWrapper">
 			<g:HTML>
