@@ -24,13 +24,15 @@ public class UpgradeItemStatisticPresenter implements Presenter {
 	}
 	
 	private void bind() {
-		display.getStatistic().setText(statistic.getName());
-		display.getValue().setText(statistic.getValue().toString());
+		String value = statistic.getValue().toString();
 		if (statistic.getValue() > 0) {
 			display.setUpgrade(true);
+			value = "+" + value;
 		} else {
 			display.setUpgrade(false);
 		}
+		display.getStatistic().setText(statistic.getName());
+		display.getValue().setText(value);
 	}
 	
 	@Override

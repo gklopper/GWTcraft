@@ -2,7 +2,7 @@ package com.gwtcraft.server;
 
 public class CacheKeyService {
 	
-	private static final String version = "d2_";
+	private static final String version = "e1_";
 	
 	public static String key(String key) {
 		if (key == null) {
