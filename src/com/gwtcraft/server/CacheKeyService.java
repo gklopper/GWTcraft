@@ -2,12 +2,12 @@ package com.gwtcraft.server;
 
 public class CacheKeyService {
 	
-	private static final String version = "_e1_";
+	private static final String version = "e2_";
 	
-	public static String key(String key, String regionCode) {
+	public static String key(String key) {
 		if (key == null) {
 			throw new IllegalArgumentException("Null key not allowed");
 		}
-		return regionCode + version + key;
+		return version + key;
 	}
 }

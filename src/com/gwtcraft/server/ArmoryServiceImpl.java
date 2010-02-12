@@ -1,8 +1,6 @@
 package com.gwtcraft.server;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Calendar;
 import java.util.Collections;
@@ -14,8 +12,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.cache.Cache;
 import javax.cache.CacheException;
@@ -30,18 +26,13 @@ import com.gwtcraft.client.model.Item;
 import com.gwtcraft.client.model.ItemDetail;
 import com.gwtcraft.client.service.ArmoryService;
 
-@SuppressWarnings({ "serial", "unchecked" })
+@SuppressWarnings( { "serial", "unchecked" })
 public class ArmoryServiceImpl extends RemoteServiceServlet implements
 		ArmoryService {
 
-	private static final Logger LOGGER = Logger
-			.getLogger(ArmoryServiceImpl.class.getName());
-
-	private static final String USER_AGENT = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5";
-
 	public static Cache cache30min;
 	public static Cache cache24hours;
-	
+
 	static {
 		Map props30min = new HashMap();
 		props30min.put(GCacheFactory.EXPIRATION_DELTA, 60 * 30);
@@ -68,20 +59,19 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 
 	public List<ArmoryCharacter> search(String regionCode, String searchTerm) {
 		try {
-			String cacheKey = CacheKeyService.key(searchTerm, regionCode);
+			String cacheKey = CacheKeyService
+					.key(regionCode + "_" + searchTerm);
 			List<ArmoryCharacter> characters = (List<ArmoryCharacter>) cache30min
 					.get(cacheKey);
 
 			if (characters == null) {
-				URL url = new URL(
-						"http://" + regionCode + ".wowarmory.com/search.xml?searchQuery="
-								+ URLEncoder.encode(searchTerm, "UTF-8"));
-				HttpURLConnection connection = (HttpURLConnection) url
-						.openConnection();
-				connection.setRequestProperty("User-Agent", USER_AGENT);
-				characters = new ArmoryParser().parseCharacterSearch(connection
-						.getInputStream());
-				
+				String url = "http://" + regionCode
+						+ ".wowarmory.com/search.xml?searchQuery="
+						+ URLEncoder.encode(searchTerm, "UTF-8");
+
+				characters = new ArmoryParser().parseCharacterSearch(UrlService
+						.open(url));
+
 				Calendar cal = Calendar.getInstance(Locale.UK);
 				cal.set(Calendar.HOUR_OF_DAY, 0);
 				cal.set(Calendar.MINUTE, 0);
@@ -89,9 +79,9 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 				cal.set(Calendar.MILLISECOND, 0);
 				cal.add(Calendar.DAY_OF_YEAR, -60);
 				Date sixtyDaysAgo = cal.getTime();
-				
+
 				Set<ArmoryCharacter> toRemove = new HashSet<ArmoryCharacter>();
-				
+
 				for (ArmoryCharacter character : characters) {
 					if (character.getLastLogin().before(sixtyDaysAgo)) {
 						toRemove.add(character);
@@ -99,11 +89,11 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 						toRemove.add(character);
 					}
 				}
-				
+
 				characters.removeAll(toRemove);
-			
+
 				Collections.sort(characters, new SearchRankComparator());
-				
+
 				cache30min.put(cacheKey, characters);
 			}
 
@@ -116,21 +106,17 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 	@Override
 	public List<Item> loadItemsFor(String regionCode, String name, String realm) {
 		try {
-			String cacheKey = CacheKeyService.key(name + "_" + realm, regionCode);
+			String cacheKey = CacheKeyService.key(regionCode + "_" + name + "_"
+					+ realm);
 			List<Item> items = (List<Item>) cache30min.get(cacheKey);
 
 			if (items == null) {
-				String urlString = String
-						.format(
-								"http://" + regionCode + ".wowarmory.com/character-sheet.xml?r=%s&n=%s",
-								URLEncoder.encode(realm, "UTF-8"), URLEncoder
-										.encode(name, "UTF-8"));
-				URL url = new URL(urlString);
-				HttpURLConnection connection = (HttpURLConnection) url
-						.openConnection();
-				connection.setRequestProperty("User-Agent", USER_AGENT);
-				items = new ArmoryParser().parseItems(connection
-						.getInputStream());
+				String url = String.format("http://" + regionCode
+						+ ".wowarmory.com/character-sheet.xml?r=%s&n=%s",
+						URLEncoder.encode(realm, "UTF-8"), URLEncoder.encode(
+								name, "UTF-8"));
+
+				items = new ArmoryParser().parseItems(UrlService.open(url));
 				cache30min.put(cacheKey, items);
 			}
 
@@ -142,25 +128,17 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 
 	@Override
 	public ItemDetail loadItem(String regionCode, Integer id) {
-		try {
-			String cacheKey = CacheKeyService.key("item_" + id, regionCode);
-			ItemDetail item = (ItemDetail) cache24hours.get(cacheKey);
+		String cacheKey = CacheKeyService.key("item_" + id);
+		ItemDetail item = (ItemDetail) cache24hours.get(cacheKey);
 
-			if (item == null) {
-				URL url = new URL("http://" + regionCode + ".wowarmory.com/item-tooltip.xml?i="
-						+ id);
-				HttpURLConnection connection = (HttpURLConnection) url
-						.openConnection();
-				connection.setRequestProperty("User-Agent", USER_AGENT);
-				item = new ArmoryParser()
-						.parseItem(connection.getInputStream());
-				cache24hours.put(cacheKey, item);
-			}
-
-			return item;
-		} catch (IOException e) {
-			throw new GwtCraftException(e);
+		if (item == null) {
+			String url = "http://" + regionCode
+					+ ".wowarmory.com/item-tooltip.xml?i=" + id;
+			item = new ArmoryParser().parseItem(UrlService.open(url));
+			cache24hours.put(cacheKey, item);
 		}
+
+		return item;
 	}
 
 	private static class SearchRankComparator implements
@@ -174,37 +152,30 @@ public class ArmoryServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public List<Integer> loadUpgradesFor(String regionCode, String playerName, String playerRealm,
-			Integer itemId) {
-		String requestUrl = null;
+	public List<Integer> loadUpgradesFor(String regionCode, String playerName,
+			String playerRealm, Integer itemId) {
+		String url = null;
+
 		try {
-			requestUrl = String
-					.format(
-							"http://" + regionCode + ".wowarmory.com/search.xml?searchType=items&pr=%s&pn=%s&pi=%s",
-							URLEncoder.encode(playerRealm, "UTF-8"),
-							URLEncoder.encode(playerName, "UTF-8"),
-							String.valueOf(itemId));
-			String key = CacheKeyService.key(requestUrl, regionCode);
-
-			List<Integer> items = (List<Integer>) cache30min.get(key);
-
-			if (items == null) {
-
-				URL url = new URL(requestUrl);
-				HttpURLConnection connection = (HttpURLConnection) url
-						.openConnection();
-				connection.setRequestProperty("User-Agent", USER_AGENT);
-				items = new ArmoryParser().parseUpgrades(connection
-						.getInputStream());
-				cache30min.put(key, items);
-
-			}
-
-			return items;
+			url = String
+					.format("http://" + regionCode + ".wowarmory.com/search.xml?searchType=items&pr=%s&pn=%s&pi=%s",
+							URLEncoder.encode(playerRealm, "UTF-8"), URLEncoder
+									.encode(playerName, "UTF-8"), String
+									.valueOf(itemId));
 		} catch (IOException ioe) {
-			LOGGER.log(Level.SEVERE, "Unable to load: " + requestUrl, ioe);
-			throw new GwtCraftException("Error retreiving data" + requestUrl,
-					ioe);
+			throw new GwtCraftException(ioe);
 		}
+
+		String key = CacheKeyService.key(url);
+
+		List<Integer> items = (List<Integer>) cache30min.get(key);
+
+		if (items == null) {
+
+			items = new ArmoryParser().parseUpgrades(UrlService.open(url));
+			cache30min.put(key, items);
+
+		}
+		return items;
 	}
 }
