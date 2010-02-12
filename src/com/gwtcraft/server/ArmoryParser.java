@@ -60,7 +60,7 @@ public class ArmoryParser {
 		SOURCE_NAMES.put("sourceType.createdBySpell", "Created");
 		SOURCE_NAMES.put("sourceType.worldDrop", "World drop");
 		SOURCE_NAMES.put("sourceType.factionReward", "Faction reward");
-		SOURCE_NAMES.put("sourceType.none", "?");
+		SOURCE_NAMES.put("sourceType.none", "Source unknown");
 		
 	}
 
