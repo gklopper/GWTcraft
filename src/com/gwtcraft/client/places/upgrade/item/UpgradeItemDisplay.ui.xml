@@ -12,21 +12,29 @@
 		.location {
 			display: inline;
 		}
+		.itemLevel {
+			font-weight: bold;
+		}
 	</ui:style>
+	
 	<g:FocusPanel>
 		<g:FlowPanel styleName="{common.underline}">
 	 		<util:HiddenWithValue ui:field="slotId"/>
 			<util:HiddenWithValue ui:field="itemId"/>
 			<g:Label styleName="{common.defaultFont}" ui:field="name"/>
 			<g:FlowPanel>
+				
 				<g:Label styleName="{style.location}" ui:field="source"/>
 				<g:Label styleName="{style.location}" ui:field="creature"/>
 				<g:Label styleName="{style.location}" ui:field="area"/>
 			</g:FlowPanel>
 			
 			<g:HorizontalPanel>
-				<g:FlowPanel ui:field="iconWrapper">
-					<g:HTML><img src="/images/loader.gif" width="15px" height="15px"/></g:HTML>				
+				<g:FlowPanel>
+					<g:FlowPanel ui:field="iconWrapper">
+						<g:HTML><img src="/images/loader.gif" width="15px" height="15px"/></g:HTML>	
+					</g:FlowPanel>
+					<g:Label styleName="{style.itemLevel}" ui:field="itemLevel"/>
 				</g:FlowPanel>
 				<g:FlowPanel ui:field="statsOne" styleName="{style.details}"></g:FlowPanel>
 				<g:FlowPanel ui:field="statsTwo" styleName="{style.details}"></g:FlowPanel>

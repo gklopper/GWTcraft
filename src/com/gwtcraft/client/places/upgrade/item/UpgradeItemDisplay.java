@@ -39,6 +39,9 @@ public class UpgradeItemDisplay extends Composite implements Display{
 	
 	@UiField
 	HasText area;
+	
+	@UiField
+	HasText itemLevel;
 
 	public UpgradeItemDisplay() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -87,5 +90,10 @@ public class UpgradeItemDisplay extends Composite implements Display{
 	@Override
 	public HasText getSource() {
 		return source;
+	}
+	
+	@Override
+	public HasText getItemLevel() {
+		return itemLevel;
 	}
 }

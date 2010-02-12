@@ -124,6 +124,7 @@ public class ArmoryParser {
 		item.setId(itemElement.element("id").value().toInteger());
 		item.setName(itemElement.element("name").value().toString());
 		item.setIcon(itemElement.element("icon").value().toString());
+		item.setItemLevel(intValueOrZero(itemElement.element("itemLevel")));
 		
 		//armor
 		int armor = intValueOrZero(itemElement.element("armor"));

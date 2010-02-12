@@ -13,6 +13,7 @@ public class ItemDetail extends Item {
 	private String source;
 	private String areaName;
 	private String creatureName;
+	private Integer itemLevel;
 	
 	
 	public List<Statistic> getStatistics() {
@@ -69,5 +70,13 @@ public class ItemDetail extends Item {
 
 	public void setSpells(List<Spell> spells) {
 		this.spells = spells;
+	}
+
+	public Integer getItemLevel() {
+		return itemLevel;
+	}
+
+	public void setItemLevel(Integer itemLevel) {
+		this.itemLevel = itemLevel;
 	}
 }

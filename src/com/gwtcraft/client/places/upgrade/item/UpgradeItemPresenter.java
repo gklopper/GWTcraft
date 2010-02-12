@@ -34,6 +34,7 @@ public class UpgradeItemPresenter implements Presenter {
 		HasText getSource();
 		HasText getCreature();
 		HasText getArea();
+		HasText getItemLevel();
 		HasWidgets getStatsOne();
 		HasWidgets getStatsTwo();
 		HasWidgets getSpells();
@@ -89,6 +90,10 @@ public class UpgradeItemPresenter implements Presenter {
 				} else {
 					display.getCreature().setText(upgradeItem.getCreatureName() + " - ");
 					display.getArea().setText(upgradeItem.getAreaName());
+				}
+				
+				if (upgradeItem.getItemLevel() > 0) {
+					display.getItemLevel().setText("iLvl " + upgradeItem.getItemLevel());
 				}
 				
 				display.getIconWrapper().clear();

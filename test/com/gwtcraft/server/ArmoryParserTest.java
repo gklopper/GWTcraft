@@ -88,6 +88,7 @@ public class ArmoryParserTest {
 		Statistic expectedSocket = new Statistic("Yellow socket", 1);
 		Assert.assertTrue(item.getStatistics().contains(expectedSocket));
 		Assert.assertEquals("Vendor", item.getSource());
+		Assert.assertEquals(245, item.getItemLevel().intValue());
 		
 	}
 	
