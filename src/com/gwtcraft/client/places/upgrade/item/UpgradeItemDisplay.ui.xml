@@ -5,7 +5,7 @@
 	
 	<ui:style field="common" src="../../common.css"/>
 	
-	<ui:style>
+	<ui:style type="com.gwtcraft.client.places.upgrade.item.UpgradeItemDisplay.Style">
 		.details {
 			padding-left: 4px;
 		}
@@ -15,6 +15,11 @@
 		.itemLevel {
 			font-weight: bold;
 		}
+		
+		.currentItem {
+			background-color: #C0C0C0;
+		}
+		
 	</ui:style>
 	
 	<g:FocusPanel>

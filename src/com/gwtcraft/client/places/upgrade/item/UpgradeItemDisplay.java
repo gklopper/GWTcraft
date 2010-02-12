@@ -1,6 +1,7 @@
 package com.gwtcraft.client.places.upgrade.item;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -15,6 +16,13 @@ public class UpgradeItemDisplay extends Composite implements Display{
 
 	interface UpgradeItemDisplayUiBinder extends UiBinder<Widget, UpgradeItemDisplay> {
 	}
+	
+	interface Style extends CssResource{
+		String currentItem();
+	}
+	
+	@UiField
+	Style style;
 	
 	@UiField
 	HasWidgets statsOne;
@@ -95,5 +103,12 @@ public class UpgradeItemDisplay extends Composite implements Display{
 	@Override
 	public HasText getItemLevel() {
 		return itemLevel;
+	}
+	
+	@Override
+	public void isCurrentItem(boolean isCurrentItem) {
+		if (isCurrentItem) {
+			setStyleName(style.currentItem());
+		}
 	}
 }

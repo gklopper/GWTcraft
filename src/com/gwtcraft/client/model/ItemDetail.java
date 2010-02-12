@@ -15,7 +15,6 @@ public class ItemDetail extends Item {
 	private String creatureName;
 	private Integer itemLevel;
 	
-	
 	public List<Statistic> getStatistics() {
 		return statistics;
 	}

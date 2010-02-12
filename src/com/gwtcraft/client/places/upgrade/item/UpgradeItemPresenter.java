@@ -39,6 +39,7 @@ public class UpgradeItemPresenter implements Presenter {
 		HasWidgets getStatsTwo();
 		HasWidgets getSpells();
 		HasWidgets getIconWrapper();
+		void isCurrentItem(boolean isCurrentItem);
 	}
 	
 	public UpgradeItemPresenter(ArmoryServiceAsync armoryService,
@@ -60,6 +61,11 @@ public class UpgradeItemPresenter implements Presenter {
 			@Override
 			public void onSuccess(final ItemDetail result) {
 				upgradeItem = result;
+				
+				if (upgradeItem.getId() == currentItem.getId()) {
+					display.isCurrentItem(true);
+				}
+				
 				final List<Statistic> upgrades = new ArrayList<Statistic>(upgradeItem.getStatistics());
 
 				//work out upgrades and downgrades
