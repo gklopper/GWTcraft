@@ -189,6 +189,10 @@ public class ArmoryParser {
 				if (spell.element("trigger").value().toInteger().equals(1)) {
 					item.getSpells().add(new Spell("Equip", description));
 				}
+				
+				if (spell.element("trigger").value().toInteger().equals(2)) {
+					item.getSpells().add(new Spell("Chance on hit", description));
+				}
 			}
 		} 
 		
